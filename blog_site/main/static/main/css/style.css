@@ -110,11 +110,13 @@ By default, top navigation bar uses "fixed" position
   *display: inline;
 }
 
+
 #section-topbar ul#nav>li {
   display: block;
   float: left;
   padding: 0;
 }
+
 
 #section-topbar ul#nav a {
   display: block;
@@ -124,11 +126,13 @@ By default, top navigation bar uses "fixed" position
   border-left: 1px solid #222;
 }
 
+
 #section-topbar ul#nav a:focus {
   background: #111;
   text-decoration: none;
   border-left: 1px solid #111;
 }
+
 
 #section-topbar ul#nav a:hover {
   background: #222;
@@ -136,18 +140,17 @@ By default, top navigation bar uses "fixed" position
   border-left: 1px solid #111;
 }
 
-#section-topbar ul#nav .active a {
-  background: #44bbaa;
-  border-left: 1px solid #111;
-}
-
-#section-topbar ul#nav .active a:hover {
-  background: #44bbaa;
-}
 
 #section-topbar i {
   font-size: 25px;
 }
+
+
+
+
+
+
+
 
 /*---------------------------------------------------
 SECTION WRAPS
@@ -238,23 +241,6 @@ SECTION WRAPS
   color: #1abc9c;
 }
 
-/* Copyright Wrap */
-
-#copyrights {
-  background: #222222;
-  padding: 20px 0;
-  text-align: center;
-  color: #fff;
-  font-size: 16px;
-}
-
-#copyrights p {
-  margin: 0 0 5px 0;
-}
-
-.credits {
-  color: #999;
-}
 
 /* Global Values */
 
