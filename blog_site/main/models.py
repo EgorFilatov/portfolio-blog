@@ -9,7 +9,7 @@ class News(models.Model):
     image = models.ImageField(verbose_name='Изображение', blank=True, upload_to='main/static/main/img/news_img/%Y/%m/%d/')
     created_at = models.DateTimeField(verbose_name='Дата публикации', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата редактирования', auto_now=True)
-    category = models.ForeignKey('Category', on_delete=models.PROTECT)
+    category = models.ForeignKey('Categories', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.header
