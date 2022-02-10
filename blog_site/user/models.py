@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class CustomUser(AbstractUser):
-    date_of_birth = models.DateField(verbose_name='Дата рождения', auto_now_add=False, blank=True)
+    date_of_birth = models.DateField(verbose_name='Дата рождения', auto_now_add=False, blank=True, null=True)
     profession = models.CharField(verbose_name='Профессия', help_text='Профессия', max_length=150, blank=True)
     about = models.TextField(verbose_name='О себе', help_text='О себе', blank=True)
     work_experience = models.ManyToManyField('WorkExperiance', blank=True)
@@ -20,6 +20,7 @@ class CustomUser(AbstractUser):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
+        ordering = ['-date_joined']
 
 
 class WorkExperiance(models.Model):
@@ -35,6 +36,7 @@ class WorkExperiance(models.Model):
     class Meta:
         verbose_name = 'Опыт работы'
         verbose_name_plural = 'Опыт работы'
+        ordering = ['-date_of_employment']
 
 
 class Education(models.Model):
@@ -49,6 +51,7 @@ class Education(models.Model):
     class Meta:
         verbose_name = 'Образование'
         verbose_name_plural = 'Образование'
+        ordering = ['-date_of_admission']
 
 
 class SocialLinks(models.Model):
@@ -61,3 +64,4 @@ class SocialLinks(models.Model):
     class Meta:
         verbose_name = 'Социальная сеть'
         verbose_name_plural = 'Социальные сети'
+        ordering = ['id']
