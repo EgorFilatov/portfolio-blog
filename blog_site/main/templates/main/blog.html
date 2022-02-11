@@ -19,30 +19,39 @@
 {% endblock %}
 
 
-{% block top %}
-<section id="about" name="about">
-    <div id="intro">
-      <div class="container">
-            <p>Самые актуальные новости интернета</p>
-      </div>
-      <!--/.container -->
-    </div>
-    <!--/ #intro -->
-  </section>
-{% endblock %}
-
-
 {% block main %}
-{% for el in news %}
-    <div class="card" style="width: 18rem;">
-      <img src="{{ el.image.url }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ el.header }}</h5>
-        <p class="card-text">{{ el.annotation }}</p>
-        <a href="#" class="btn btn-primary">Подробнее</a>
-      </div>
+<div id="main">
+    <div id="aside">
+        <ul id="navigation" class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
     </div>
 
 
-{% endfor %}
+    <main>
+        {% for el in news %}
+        <div id="news" class="card">
+          <div class="card-body">
+              <h5 class="card-title">{{ el.header }}</h5>
+              <img src="{{ el.image.url }}" class="card-img-top" alt="...">
+              <p class="card-text">{{ el.annotation }}</p>
+              <a href="#" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+    {% endfor %}
+    </main>
+</div>
+
+
 {% endblock %}
