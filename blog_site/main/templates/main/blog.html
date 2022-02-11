@@ -30,3 +30,19 @@
     <!--/ #intro -->
   </section>
 {% endblock %}
+
+
+{% block main %}
+{% for el in news %}
+    <div class="card" style="width: 18rem;">
+      <img src="{{ el.image.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ el.header }}</h5>
+        <p class="card-text">{{ el.annotation }}</p>
+        <a href="#" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+
+
+{% endfor %}
+{% endblock %}
