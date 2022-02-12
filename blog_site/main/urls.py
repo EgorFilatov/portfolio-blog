@@ -9,5 +9,6 @@ from .views import *
 urlpatterns = [
     path('', views.home_page, name='home'),
     path('blog/', BlogNewsShow.as_view(), name='blog'),
+    path('category/<int:cat_id>/', views.category, name='categories'),
 
 ]

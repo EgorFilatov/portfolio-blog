@@ -147,9 +147,34 @@ By default, top navigation bar uses "fixed" position
 
 
 
+
+
+
+#navigation {
+float: left;
+width: 200px;
+background-color: #2c3e50;
+height: auto;
+}
+
+
+#navigation a {
+    color: white;
+}
+
+
+#navigation a:hover {
+    color: #7b7b7b;
+}
+
+
+
+
 #news {
+    margin-left: 200px;
     padding-left: 50px;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #news h5 {
@@ -164,19 +189,6 @@ By default, top navigation bar uses "fixed" position
 
 
 
-#navigation {
-    background-color: #2c3e50;
-}
-
-#navigation a {
-    color: white;
-}
-
-
-/* When you mouse over the navigation links, change their color */
-#navigation a:hover {
-    color: #7b7b7b;
-}
 
 
 
@@ -194,10 +206,8 @@ By default, top navigation bar uses "fixed" position
 
 
 
-#aside {
-float: left;
-width: 200px;
-}
+
+
 /*---------------------------------------------------
 SECTION WRAPS
 ---------------------------------------------------*/
