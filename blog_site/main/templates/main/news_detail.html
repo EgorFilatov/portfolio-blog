@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block headerwrap %}
+<div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-12">
+          <h1>Новости</h1>
+        </div>
+        <!--/.col-lg-12 -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!--/.container -->
+  </div>
+  <!--/.#headerwrap -->
+{% endblock %}
+
+
+{% block main %}
+
+    <ul id="navigation" class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog' %}">Все новости</a>
+            {% for el in categories %}
+            <a class="nav-link" href="{{ el.get_absolute_url }}">{{ el.category }}</a>
+            {% endfor %}
+        </li>
+    </ul>
+
+
+    <div id="news" class="card">
+        <h5>{{ news.header }}</h5>
+        <img src="{{ news.image.url }}" class="card-img-top" alt="...">
+        <p>{{ news.full_text }}</p>
+    </div>
+
+
+
+
+{% endblock %}

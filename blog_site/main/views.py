@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import *
 from user.models import *
@@ -18,9 +18,19 @@ def home_page(request):
                                                    'email': email,})
 
 
-class BlogNewsShow(ListView):
+class BlogNewsList(ListView):
     model = News
     template_name = 'main/blog.html'
+    context_object_name = 'news'
+    categories = Categories.objects.all()
+    extra_context = {'first_name': user_first_name,
+                     'last_name': user_last_name,
+                     'categories': categories,}
+
+
+class BlogNewsDetail(DetailView):
+    model = News
+    template_name = 'main/news_detail.html'
     context_object_name = 'news'
     categories = Categories.objects.all()
     extra_context = {'first_name': user_first_name,
