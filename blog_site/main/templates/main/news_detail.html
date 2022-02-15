@@ -20,24 +20,10 @@
 
 
 {% block main %}
-
-    <ul id="navigation" class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog' %}">Все новости</a>
-            {% for el in categories %}
-            <a class="nav-link" href="{{ el.get_absolute_url }}">{{ el.category }}</a>
-            {% endfor %}
-        </li>
-    </ul>
-
-
+    {% include 'main/inc/_sidebar.html' %}
     <div id="news" class="card">
-        <h5>{{ news.header }}</h5>
         <img src="{{ news.image.url }}" class="card-img-top" alt="...">
+        <h5>{{ news.header }}</h5>
         <p>{{ news.full_text }}</p>
     </div>
-
-
-
-
 {% endblock %}

@@ -20,29 +20,6 @@
 
 
 {% block main %}
-
-    <ul id="navigation" class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog' %}">Все новости</a>
-            {% for el in categories %}
-            <a class="nav-link" href="{{ el.get_absolute_url }}">{{ el.category }}</a>
-            {% endfor %}
-        </li>
-    </ul>
-
-
-    <div id="news" class="card">
-        <div class="card-body">
-            {% for el in news %}
-            <h5 class="card-title">{{ el.header }}</h5>
-            <img src="{{ el.image.url }}" class="card-img-top" alt="...">
-            <p class="card-text">{{ el.annotation }}</p>
-            <a href="{{ el.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
-            {% endfor %}
-        </div>
-    </div>
-
-
-
-
+    {% include 'main/inc/_sidebar.html' %}
+    {% include 'main/inc/_news_card.html' %}
 {% endblock %}

@@ -34,7 +34,7 @@
 </head>
 
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
-
+{% block topbar %}
   <div id="section-topbar">
     <div id="topbar-inner">
           <div class="dropdown">
@@ -52,7 +52,7 @@
     <!--/ #topbar-inner -->
   </div>
   <!--/ #section-topbar -->
-
+{% endblock %}
 
 
 
@@ -68,7 +68,7 @@
   {% block buttom %}
   {% endblock %}
 
-
+  {% block contact %}
   <section id="contact" name="contact">
     <!--FOOTER DESCRIPTION -->
     <div id="footwrap">
@@ -143,6 +143,7 @@
     </div>
     <!--/ #footer -->
   </section>
+  {% endblock %}
 
   <!-- JavaScript Libraries -->
   <script src="{% static 'main/lib/jquery/jquery.min.js' %}"></script>
