@@ -9,9 +9,35 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
+    fieldsets = (
+        *UserAdmin.fieldsets,  # original form fieldsets, expanded
+        (  # new fieldset added on to the bottom
+            'О себе',  # group heading of your choice; set to None for a blank space instead of a header
+            {
+                'fields': (
+                    'about',
+                    'photo',
+                    'date_of_birth',
+                    'profession',
+                    'skills',
+                    'summary',
+                ),
+            },
+        ),
+        (  # new fieldset added on to the bottom
+            'Контакты',  # group heading of your choice; set to None for a blank space instead of a header
+            {
+                'fields': (
+                    'Phone',
+                ),
+            },
+        ),
+    )
+
     list_display = ['first_name', 'username', 'email',]
     list_display_links = ['first_name', 'username',]
     search_fields = ['date_of_birth', 'profession', 'about', 'work_experience', 'education', 'photo', 'social_links', 'Phone', 'skills',]
+
 
 admin.site.register(CustomUser, CustomUserAdmin)
 

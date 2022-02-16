@@ -6,12 +6,9 @@ class CustomUser(AbstractUser):
     date_of_birth = models.DateField(verbose_name='Дата рождения', auto_now_add=False, blank=True, null=True)
     profession = models.CharField(verbose_name='Профессия', help_text='Профессия', max_length=150, blank=True)
     about = models.TextField(verbose_name='О себе', help_text='О себе', blank=True)
-    work_experience = models.ManyToManyField('WorkExperiance', blank=True)
-    education = models.ManyToManyField('Education', blank=True)
-    photo = models.ImageField(verbose_name='Фото', blank=True, upload_to='user/static/user/img/users_photo/%Y/%m/%d/')
-    summary = models.FileField(verbose_name='Резюме', blank=True, upload_to='user/static/user/docs/%Y/%m/%d/')
-    social_links = models.ManyToManyField('SocialLinks', blank=True)
-    Phone = models.CharField(verbose_name='Телефон', help_text='Телефон', max_length=15, blank=True)
+    photo = models.ImageField(verbose_name='Фото', blank=True, upload_to='media/img/user_img/%Y/%m/%d/')
+    summary = models.FileField(verbose_name='Резюме', blank=True, upload_to='media/doc/user_doc/%Y/%m/%d/')
+    Phone = models.CharField(verbose_name='Телефон', help_text='Телефон', max_length=50, blank=True)
     skills = models.TextField(verbose_name='Навыки', help_text='Навыки', blank=True)
 
     def __str__(self):
@@ -24,6 +21,7 @@ class CustomUser(AbstractUser):
 
 
 class WorkExperiance(models.Model):
+    custom_user = models.ForeignKey('CustomUser', null=True, blank=True, on_delete=models.PROTECT, verbose_name='Пользователь')
     company = models.CharField(verbose_name='Компания', help_text='Компания', max_length=150)
     position = models.CharField(verbose_name='Должность', help_text='Должность', max_length=150)
     responsibilities = models.TextField(verbose_name='Обязанности', help_text='Обязанности', blank=True)
@@ -40,6 +38,7 @@ class WorkExperiance(models.Model):
 
 
 class Education(models.Model):
+    custom_user = models.ForeignKey('CustomUser', null=True, blank=True, on_delete=models.PROTECT, verbose_name='Пользователь')
     place_of_study = models.CharField(verbose_name='Место учебы', help_text='Место учебы', max_length=150)
     degree = models.CharField(verbose_name='Степень', help_text='Степень', max_length=150, blank=True)
     date_of_admission = models.DateField(verbose_name='Дата поступления', auto_now_add=False, blank=True)
@@ -55,6 +54,7 @@ class Education(models.Model):
 
 
 class SocialLinks(models.Model):
+    custom_user = models.ForeignKey('CustomUser', null=True, blank=True, on_delete=models.PROTECT, verbose_name='Пользователь')
     social_link_name = models.CharField(verbose_name='Название социальной сети', help_text='Название социальной сети', max_length=150)
     link_value = models.CharField(verbose_name='Ссылка', help_text='Ссылка', max_length=150)
 
