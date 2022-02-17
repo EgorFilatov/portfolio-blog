@@ -1,16 +1,16 @@
 <div id="news" class="card text-center">
-        {% for el in news %}
-        <div class="card-header">{{ el.category }}</div>
-            <div class="card-body">
-                {% if el.image %}
-                <img src="{{ el.image.url }}" class="card-img-top" alt="...">
-                {% endif %}
-                <h5 class="card-title">{{ el.header }}</h5>
-                <p class="card-text">{{ el.annotation }}</p>
-                <a href="{{ el.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
-            </div>
-        <div class="card-footer text-muted">
-            {{ el.created_at }}
+    {% for el in news %}
+    <div class="card-header">{{ el.category }}</div>
+        <div class="card-body">
+            {% if el.image %}
+            <img src="{{ el.image.url }}" class="card-img-top" alt="...">
+            {% endif %}
+            <h5 class="card-title">{{ el.header }}</h5>
+            <p class="card-text">{{ el.annotation }}</p>
+            <a href="{{ el.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
         </div>
-        {% endfor %}
+    <div class="card-footer text-muted">
+        {{ el.created_at }}
     </div>
+        {% endfor %}
+</div>

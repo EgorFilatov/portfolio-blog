@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block headerwrap %}
+<div id="headerwrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-12">
+          <h1>Новости</h1>
+        </div>
+        <!--/.col-lg-12 -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!--/.container -->
+  </div>
+  <!--/.#headerwrap -->
+{% endblock %}
+
+
+{% block main %}
+
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="{{ form.header.id_for_label }}" class="form-label">Заголовок</label>
+        {{ form.header }}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.annotation.id_for_label }}" class="form-label">Аннотация</label>
+        {{ form.annotation }}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.full_text.id_for_label }}" class="form-label">Текст статьи</label>
+        {{ form.full_text }}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.image.id_for_label }}" class="form-label">Фото</label>
+        {{ form.image }}
+    </div>
+    <div class="mb-3">
+        <label for="{{ form.category.id_for_label }}" class="form-label">Категория</label>
+        {{ form.category }}
+    </div>
+    <a href="#" class="btn btn-primary">Добавить</a>
+
+{% endblock %}
