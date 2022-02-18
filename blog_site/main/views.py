@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from .forms import NewsForm
 from .models import *
@@ -18,6 +18,11 @@ class BlogNewsList(ListView):
     extra_context = {}
 
 
+def category(request, cat_id):
+    news = News.objects.filter(category_id=cat_id)
+    return render(request, "main/category.html", {'news': news,})
+
+
 class BlogNewsDetail(DetailView):
     model = News
     template_name = 'main/news_detail.html'
@@ -25,21 +30,9 @@ class BlogNewsDetail(DetailView):
     extra_context = {}
 
 
-def category(request, cat_id):
-    news = News.objects.filter(category_id=cat_id)
-    return render(request, "main/category.html", {'news': news,})
+class CreateNews(CreateView):
+    form_class = NewsForm
+    template_name = 'main/news_add.html'
+    success_url = reverse_lazy('blog')
 
 
-def news_add(request):
-    error = ''
-    if request.method == 'POST':
-        form = NewsForm(request.POST)
-        if form.is_valid():
-            news = form.save()
-            return redirect('blog')
-        else:
-            error = 'error'
-    else:
-        form = NewsForm()
-    return render(request, "main/news_add.html", {'form': form,
-                                                  'error': error,})

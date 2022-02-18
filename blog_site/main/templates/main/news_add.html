@@ -20,9 +20,8 @@
 
 
 {% block main %}
-<form method="post" id="news_add_form">
+<form method="post" enctype="multipart/form-data" id="news_add_form">
     {% csrf_token %}
-    {{ error.as_p }}
     {{ form.as_p }}
     {{ error.as_p }}
     <button type="submit" class="btn btn-primary">Добавить</button>
