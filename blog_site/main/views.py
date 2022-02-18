@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 
 from .forms import NewsForm
 from .models import *
+from .import urls
 from user.models import *
 
 
@@ -30,8 +31,15 @@ def category(request, cat_id):
 
 
 def news_add(request):
+    error = ''
     if request.method == 'POST':
-        pass
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            news = form.save()
+            return redirect('blog')
+        else:
+            error = 'error'
     else:
         form = NewsForm()
-    return render(request, "main/news_add.html", {'form': form,})
+    return render(request, "main/news_add.html", {'form': form,
+                                                  'error': error,})
