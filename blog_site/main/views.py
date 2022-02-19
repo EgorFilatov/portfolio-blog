@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .forms import NewsForm
 from .models import *
@@ -34,5 +34,11 @@ class CreateNews(CreateView):
     form_class = NewsForm
     template_name = 'main/news_add.html'
     success_url = reverse_lazy('blog')
+
+
+class UpdateNews(UpdateView):
+    model = News
+    form_class = NewsForm
+    template_name = 'main/news_update.html'
 
 

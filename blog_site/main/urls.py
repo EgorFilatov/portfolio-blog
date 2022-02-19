@@ -9,4 +9,5 @@ urlpatterns = [
     path('category/<int:cat_id>/', views.category, name='categories'),
     path('news/<int:pk>/', BlogNewsDetail.as_view(), name='news'),
     path('news_add/', CreateNews.as_view(), name='news_add'),
+    path('news_update/<int:pk>/', UpdateNews.as_view(), name='news_update'),
 ]
