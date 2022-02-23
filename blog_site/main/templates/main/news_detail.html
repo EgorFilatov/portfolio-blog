@@ -26,5 +26,6 @@
         <h5>{{ news.header }}</h5>
         <p>{{ news.full_text }}</p>
         <a href="{% url 'news_update' news.pk %}" class="btn btn-primary">Редактировать</a>
+        <a href="{% url 'news_delete' news.pk %}" class="btn btn-primary">Удалить</a>
     </div>
 {% endblock %}

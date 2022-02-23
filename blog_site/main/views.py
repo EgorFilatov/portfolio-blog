@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .forms import NewsForm
 from .models import *
@@ -40,5 +40,11 @@ class UpdateNews(UpdateView):
     model = News
     form_class = NewsForm
     template_name = 'main/news_update.html'
+
+
+class DeleteNews(DeleteView):
+    model = News
+    template_name = 'main/news-delete.html'
+    success_url = reverse_lazy('blog')
 
 
