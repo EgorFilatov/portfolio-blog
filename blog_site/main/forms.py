@@ -13,6 +13,5 @@ class NewsForm(forms.ModelForm):
             'annotation': forms.Textarea(attrs={'class': 'form-control'}),
             'full_text': forms.Textarea(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(attrs={'class': 'form-control'},),
-        }
+            'category': forms.Select(attrs={'class': 'form-control'},),}
 

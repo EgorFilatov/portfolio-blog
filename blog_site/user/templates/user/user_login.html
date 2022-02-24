@@ -23,6 +23,7 @@
 <form method="post" enctype="multipart/form-data" id="news_add_form">
     {% csrf_token %}
     {{ form.as_p }}
+    {{ error.as_p }}
     <button type="submit" class="btn btn-primary">Добавить</button>
 </form>
 {% endblock %}
