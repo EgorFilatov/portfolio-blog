@@ -46,8 +46,12 @@
               <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Обо мне</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Блог</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
+              {% if request.user.is_authenticated %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'user_logout' %}">Добро пожаловать, {{ user.username }} | Выйти</a></li>
+              {% else %}
               <li class="nav-item"><a class="nav-link" href="{% url 'user_registration' %}">Зарегистрироваться</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'user_login' %}">Войти</a></li>
+              {% endif %}
             </ul>
             <!--/ uL#nav -->
           </div>
