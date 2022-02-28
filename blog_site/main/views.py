@@ -48,3 +48,6 @@ class DeleteNews(DeleteView):
     success_url = reverse_lazy('blog')
 
 
+
+
+

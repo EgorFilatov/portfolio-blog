@@ -15,3 +15,6 @@ class NewsForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'},),}
 
+
+
+

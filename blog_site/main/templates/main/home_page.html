@@ -8,7 +8,6 @@
     <div class="container">
       <div class="row centered">
         <div class="col-lg-12">
-          {% get_user as user %}
           <h1>{{ user.first_name }} {{ user.last_name }}</h1>
           <h3>{{ user.profession }} | {{ user.email }}</h3>
         </div>
@@ -32,7 +31,6 @@
             <h5>Обо мне</h5>
           </div>
           <div class="col-lg-6">
-            {% get_user as user %}
             <p>{{ user.about }}</p>
           </div>
           <div class="col-lg-3">

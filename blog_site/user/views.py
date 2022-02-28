@@ -36,6 +36,10 @@ def user_logout(request):
     return redirect('home')
 
 
+def contacts(request):
+    return render(request, "user/user_contacts.html", {})
+
+
 
 
 
