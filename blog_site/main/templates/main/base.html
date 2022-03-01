@@ -7,8 +7,9 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  {% get_user as user %}
+
   <title>{{ user.first_name }} {{ user.last_name }}</title>
+
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -28,64 +29,59 @@
 
   <!-- Main Stylesheet File -->
   <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-    Template Name: Kelvin
-    Template URL: https://templatemag.com/kelvin-bootstrap-resume-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
 </head>
 
 <body data-spy="scroll" data-offset="64" data-target="#section-topbar">
-{% block topbar %}
-  <div id="section-topbar">
-    <div id="topbar-inner">
-          <div class="dropdown">
-            <ul id="nav" class="nav">
-              <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Обо мне</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Блог</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'contacts' %}">Контакты</a></li>
-              {% if request.user.is_authenticated %}
-              <li class="nav-item"><a class="nav-link" href="{% url 'user_logout' %}">Добро пожаловать, {{ user.first_name }} | Выйти</a></li>
-              {% else %}
-              <li class="nav-item"><a class="nav-link" href="{% url 'user_registration' %}">Зарегистрироваться</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'user_login' %}">Войти</a></li>
-              {% endif %}
-            </ul>
-            <!--/ uL#nav -->
-          </div>
-          <!-- /.dropdown -->
-    </div>
-    <!--/ #topbar-inner -->
-  </div>
-  <!--/ #section-topbar -->
-{% endblock %}
 
 
-
-  {% block headerwrap %}
+<header>
+  {% block header %}
+    {% include 'main/inc/_topbar.html' %}
   {% endblock %}
+</header>
 
-  {% block top %}
+
+<nav>
+  {% block nav %}
+  {% endblock %}
+</nav>
+
+
+<main>
+  {% block headerwrap %}
   {% endblock %}
 
   {% block main %}
   {% endblock %}
+</main>
+
+
+<aside>
+  {% block aside %}
+  {% endblock %}
+</aside>
+
+
+<footer>
+  {% block footer %}
+  {% endblock %}
+</footer>
+
+
+
+  {% block top %}
+  {% endblock %}
+
+
 
   {% block buttom %}
   {% endblock %}
 
-  {% block contact %}
-  {% endblock %}
-
-  <!-- JavaScript Libraries -->
   <script src="{% static 'main/lib/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'main/lib/bootstrap/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'main/lib/php-mail-form/validate.js' %}"></script>
   <script src="{% static 'main/lib/chart/chart.js' %}"></script>
   <script src="{% static 'main/lib/easing/easing.min.js' %}"></script>
-  <!-- Template Main Javascript File -->
   <script src="{% static 'main/js/main.js' %}"></script>
 
 </body>

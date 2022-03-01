@@ -2,6 +2,11 @@
 {% load static %}
 
 
+{% block nav %}
+    {% include 'main/inc/_sidebar.html' %}
+{% endblock %}
+
+
 {% block headerwrap %}
 <div id="headerwrap">
     <div class="container">
@@ -20,6 +25,5 @@
 
 
 {% block main %}
-    {% include 'main/inc/_sidebar.html' %}
     {% include 'main/inc/_news_card.html' %}
 {% endblock %}
