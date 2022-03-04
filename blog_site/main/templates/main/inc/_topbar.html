@@ -1,11 +1,9 @@
-<ul id="topbar">
-  <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Обо мне</a></li>
-  <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Блог</a></li>
-  <li class="nav-item"><a class="nav-link" href="{% url 'contacts' %}">Контакты</a></li>
-  {% if request.user.is_authenticated %}
-    <li class="nav-item"><a class="nav-link" href="{% url 'user_logout' %}">Добро пожаловать, {{ user.first_name }} | Выйти</a></li>
-  {% else %}
-    <li class="nav-item"><a class="nav-link" href="{% url 'user_registration' %}">Зарегистрироваться</a></li>
-    <li class="nav-item"><a class="nav-link" href="{% url 'user_login' %}">Войти</a></li>
-  {% endif %}
-</ul>
+<a href="{% url 'home' %}">Обо мне</a>
+<a href="{% url 'blog' %}">Блог</a>
+<a href="{% url 'contacts' %}">Контакты</a>
+{% if request.user.is_authenticated %}
+  <a href="{% url 'user_logout' %}" class="right">Добро пожаловать, {{ user.first_name }} | Выйти</a>
+{% else %}
+  <a href="{% url 'user_registration' %}" class="right">Зарегистрироваться</a>
+  <a href="{% url 'user_login' %}" class="right">Войти</a>
+{% endif %}

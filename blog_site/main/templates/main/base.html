@@ -10,9 +10,16 @@
 
   <title>{{ user.first_name }} {{ user.last_name }}</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
+
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  </style>
 
   <!-- Favicons -->
   <link href="{% static 'main/img/favicon.png' %}" rel="icon">
@@ -31,51 +38,42 @@
   <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
 </head>
 
-<body data-spy="scroll" data-offset="64" data-target="#section-topbar">
+<body>
 
 
-<header>
+<div class="header">
   {% block header %}
-    {% include 'main/inc/_topbar.html' %}
   {% endblock %}
-</header>
+</div>
 
 
-<nav>
-  {% block nav %}
-  {% endblock %}
-</nav>
+<div class="topbar">
+  {% include 'main/inc/_topbar.html' %}
+</div>
 
 
-<main>
-  {% block headerwrap %}
-  {% endblock %}
 
-  {% block main %}
-  {% endblock %}
-</main>
-
-
-<aside>
-  {% block aside %}
-  {% endblock %}
-</aside>
+<div class="row">
+  <div class="main">
+    {% block main %}
+    {% endblock %}
+  </div>
+  <div class="side">
+    {% block side %}
+    {% endblock %}
+  </div>
+</div>
 
 
-<footer>
+<div class="footer">
   {% block footer %}
   {% endblock %}
-</footer>
+</div>
 
 
 
-  {% block top %}
-  {% endblock %}
 
 
-
-  {% block buttom %}
-  {% endblock %}
 
   <script src="{% static 'main/lib/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'main/lib/bootstrap/js/bootstrap.min.js' %}"></script>

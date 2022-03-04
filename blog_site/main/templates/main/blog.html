@@ -1,29 +1,15 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-
-{% block nav %}
-    {% include 'main/inc/_sidebar.html' %}
-{% endblock %}
-
-
-{% block headerwrap %}
-<div id="headerwrap">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-12">
-          <h1>Новости</h1>
-        </div>
-        <!--/.col-lg-12 -->
-      </div>
-      <!--/.row -->
-    </div>
-    <!--/.container -->
-  </div>
-  <!--/.#headerwrap -->
+{% block header %}
+    <h1>Новости</h1>
 {% endblock %}
 
 
 {% block main %}
     {% include 'main/inc/_news_card.html' %}
+{% endblock %}
+
+{% block side %}
+    {% include 'main/inc/_sidebar.html' %}
 {% endblock %}
