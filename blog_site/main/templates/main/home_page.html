@@ -11,19 +11,36 @@
 
 {% block main %}
 
-                        <h5>Обо мне</h5>
-
-                        <p>{{ user.about }}</p>
-
-                        <sm>Скачать резюме</sm>
-
-
+<div class="about">
+    <h1 class="left">Обо мне</h1>
+    <a class="center">{{ user.about }}</a>
+    <a class="right">Скачать резюме</a>
+</div>
 
 
-          <h5>Образование</h5>
-          {% get_education as education %}
-          {% for el in education %}
-          <p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Образование</h5>
+{% get_education as education %}
+{% for el in education %}
+<p>
             <t>{{ el.degree }}</t><br/> {{ el.place_of_study }} <br/>
           </p>
           <p>

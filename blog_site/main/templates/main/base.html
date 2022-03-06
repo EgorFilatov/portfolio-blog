@@ -15,12 +15,6 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <style>
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  </style>
-
   <!-- Favicons -->
   <link href="{% static 'main/img/favicon.png' %}" rel="icon">
   <link href="{% static 'main/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
@@ -47,21 +41,15 @@
 </div>
 
 
-<div class="topbar">
-  {% include 'main/inc/_topbar.html' %}
-</div>
-
+{% include 'main/inc/_topbar.html' %}
 
 
 <div class="row">
-  <div class="main">
-    {% block main %}
-    {% endblock %}
-  </div>
-  <div class="side">
-    {% block side %}
-    {% endblock %}
-  </div>
+  {% block side %}
+  {% endblock %}
+
+  {% block main %}
+  {% endblock %}
 </div>
 
 
