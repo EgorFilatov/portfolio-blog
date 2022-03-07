@@ -11,119 +11,113 @@
 
 {% block main %}
 
-<div class="about">
-    <h1 class="left">Обо мне</h1>
-    <a class="center">{{ user.about }}</a>
-    <a class="right">Скачать резюме</a>
+<div class="container-fluid" id="about">
+    <div class="row">
+        <div class="col-md-3">
+           <h1>Обо мне</h1>
+        </div>
+        <div class="col-md-6">
+           <a>{{ user.about }}</a>
+        </div>
+        <div class="col-md-3">
+           <a>Скачать резюме</a>
+        </div>
+    </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Образование</h5>
-{% get_education as education %}
-{% for el in education %}
-<p>
-            <t>{{ el.degree }}</t><br/> {{ el.place_of_study }} <br/>
-          </p>
-          <p>
-            <sm>{{ el.date_of_admission }}</sm><br/>
-            <imp>
-              <sm>{{ el.date_of_graduation }}</sm>
-            </imp>
-          </p>
-          {% endfor %}
-
-
-  <!--WORK DESCRIPTION -->
-  <div class="container desc">
+<div class="container-fluid" id="education">
     <div class="row">
-        <h5>Работа</h5>
-        {% get_work_experiance as work %}
-        {% for el in work %}
-        <p>
-          <t>{{ el.position }}</t><br/> {{ el.company }} <br/>
-        </p>
-        <p>
-          <more>{{ el.responsibilities }}</more>
-        </p>
-        <p>
-          <sm>{{ el.date_of_employment }}</sm><br/>
-            <imp>
-              <sm>{{ el.date_of_dismissal }}</sm>
-            </imp>
-        </p>
-        {% endfor %}
+        <div class="col-md-3">
+            <h1>Образование</h1>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                {% get_education as education %}
+                {% for el in education %}
+                    <div class="col-md-6">
+                        <h3>{{ el.degree }}</h3>
+                        <br/>{{ el.place_of_study }}<br/>
+                    </div>
+                    <div class="col-md-3">
+                       <a>{{ el.date_of_admission }}-{{ el.date_of_graduation }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    <!--/.row -->
-    <br>
     <hr>
-  </div>
-  <!--/.container -->
+</div>
 
 
-<div id="skillswrap">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-lg-offset-1">
-          <h5>SKILLS</h5>
+<div class="container-fluid" id="work">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>Работа</h1>
         </div>
-        <div class="col-lg-3 centered">
-          <canvas id="javascript" height="130" width="130"></canvas>
-          <p>Javascript</p>
-          <br>
+        <div class="col-md-9">
+            <div class="row">
+                {% get_work_experiance as work %}
+                {% for el in work %}
+                    <div class="col-md-6">
+                        <h3>{{ el.position }}</h3>
+                        <br/>{{ el.company }}<br/>
+                        <br/>{{ el.responsibilities }}<br/>
+                    </div>
+                    <div class="col-md-3">
+                       <a>{{ el.date_of_employment }}-{{ el.date_of_dismissal }}</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="col-lg-3 centered">
-          <canvas id="bootstrap" height="130" width="130"></canvas>
-          <p>Bootstrap</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="wordpress" height="130" width="130"></canvas>
-          <p>Wordpress</p>
-          <br>
-        </div>
-
-        <div class="col-lg-3 col-lg-offset-3 centered">
-          <canvas id="html" height="130" width="130"></canvas>
-          <p>HTML/CSS</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="photoshop" height="130" width="130"></canvas>
-          <p>Photoshop</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="illustrator" height="130" width="130"></canvas>
-          <p>Illustrator</p>
-          <br>
-        </div>
-
-      </div>
-      <!--/.row -->
-      <br>
     </div>
-    <!--/.container -->
-  </div>
-  <!--/ #skillswrap -->
+    <hr>
+</div>
+
+
+<div class="container-fluid" id="skills">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>Мои навыки</h1>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-lg-3 centered">
+                  <canvas id="javascript" height="130" width="130"></canvas>
+                  <p>Javascript</p>
+                  <br>
+                </div>
+                <div class="col-lg-3 centered">
+                  <canvas id="bootstrap" height="130" width="130"></canvas>
+                  <p>Bootstrap</p>
+                  <br>
+                </div>
+                <div class="col-lg-3 centered">
+                  <canvas id="wordpress" height="130" width="130"></canvas>
+                  <p>Wordpress</p>
+                  <br>
+                </div>
+
+                <div class="col-lg-3 col-lg-offset-1 centered">
+                  <canvas id="html" height="130" width="130"></canvas>
+                  <p>HTML/CSS</p>
+                  <br>
+                </div>
+                <div class="col-lg-3 centered">
+                  <canvas id="photoshop" height="130" width="130"></canvas>
+                  <p>Photoshop</p>
+                  <br>
+                </div>
+                <div class="col-lg-3 centered">
+                  <canvas id="illustrator" height="130" width="130"></canvas>
+                  <p>Illustrator</p>
+                  <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
 {% endblock %}
 
 
