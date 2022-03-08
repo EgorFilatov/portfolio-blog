@@ -6,7 +6,7 @@ body {
 /*---------------------------------------------------
 Header
 ---------------------------------------------------*/
-.header {
+#header {
 
   padding: 80px; /* some padding */
   text-align: center; /* center the text */
@@ -15,8 +15,26 @@ Header
 }
 
 /* Increase the font size of the <h1> element */
-.header h1 {
+#header h1 {
   font-size: 40px;
+  text-shadow: 1px 1px 5px;
+}
+
+#summary_btn {
+
+}
+
+#summary_btn a {
+  width: auto;
+  background-color: #333;
+  border-color: #333;
+  -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+  -o-transition: all 0.3s 0.01s ease;
+  -webkit-transition: all 0.3s 0.01s ease;
+}
+
+#summary_btn a:hover {
+  background-color: #ddd; /* Grey background color */
 }
 
 
@@ -25,25 +43,46 @@ Topbar
 ---------------------------------------------------*/
 #topbar {
   background-color: #333; /* Dark background color */
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+.navbar-brand {
+  display: table;
 }
 
+.navbar-brand>img {
+  width: 50%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#toggler-icon {
+    width: 10%;
+}
 
 #topbar li {
-    padding-right: 50px;
+  border-right: 1px solid #222;
+}
 
+.nav-link {
+  color: white !important;
+  text-decoration: none;
 }
 
 #topbar a {
-  color: white; /* White text color */
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+#topbar li {
   -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
   -o-transition: all 0.3s 0.01s ease;
   -webkit-transition: all 0.3s 0.01s ease;
 }
 
-
 #topbar li:hover {
   background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
 }
 
 
@@ -78,55 +117,19 @@ Sidebar
 
 
 /*---------------------------------------------------
-Content
+Main
 ---------------------------------------------------*/
-/* Ensure proper sizing */
-* {
-    box-sizing: border-box;
-width: 100%;
+#education {
+    padding: 10px;
 }
 
-/* Column container */
-.row {
-
-  display: flex;
-  flex-wrap: wrap;
+#work {
+    padding: 10px;
 }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-
-  float: left;
-  flex: 30%; /* Set the width of the sidebar */
-  background-color: #f1f1f1; /* Grey background color */
-  padding: 20px; /* Some padding */
+#skills {
+    padding: 10px;
 }
-
-/* Main column */
-.main {
-float: right;
-  flex: 70%; /* Set the width of the main content */
-  background-color: white; /* White background color */
-  padding: 20px; /* Some padding */
-}
-
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
-  .row {
-    flex-direction: column;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
-}
-
 
 /*---------------------------------------------------
 Footer
@@ -143,9 +146,7 @@ Footer
 /*---------------------------------------------------
 About
 ---------------------------------------------------*/
-#about {
-  background-color: #1abc9c; /* Dark background color */
-}
+
 
 
 

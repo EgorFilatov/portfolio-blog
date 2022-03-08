@@ -4,32 +4,25 @@
 
 
 {% block header %}
-    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-    <p>{{ user.profession }} | {{ user.email }}</p>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+            <a>{{ user.profession }} | {{ user.email }}</a><br>
+            <a>{{ user.about }}</a><br>
+            <div id="summary_btn">
+                <a href="{% url 'contacts' %}" class="btn btn-primary">Моё резюме</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 
 {% block main %}
-
-<div class="container-fluid" id="about">
+<div id="education">
     <div class="row">
         <div class="col-md-3">
-           <h1>Обо мне</h1>
-        </div>
-        <div class="col-md-6">
-           <a>{{ user.about }}</a>
-        </div>
-        <div class="col-md-3">
-           <a>Скачать резюме</a>
-        </div>
-    </div>
-</div>
-
-
-<div class="container-fluid" id="education">
-    <div class="row">
-        <div class="col-md-3">
-            <h1>Образование</h1>
+            <h1>Моё образование</h1>
         </div>
         <div class="col-md-9">
             <div class="row">
@@ -50,10 +43,10 @@
 </div>
 
 
-<div class="container-fluid" id="work">
+<div id="work">
     <div class="row">
         <div class="col-md-3">
-            <h1>Работа</h1>
+            <h1>Опыт работы</h1>
         </div>
         <div class="col-md-9">
             <div class="row">
@@ -75,7 +68,7 @@
 </div>
 
 
-<div class="container-fluid" id="skills">
+<div id="skills">
     <div class="row">
         <div class="col-md-3">
             <h1>Мои навыки</h1>

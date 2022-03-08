@@ -39,19 +39,16 @@
 <body>
 
 
-<div class="header">
+{% include 'main/inc/_topbar.html' %}
+
+
+<div class="container-fluid" id="header">
   {% block header %}
   {% endblock %}
 </div>
 
 
-{% include 'main/inc/_topbar.html' %}
-
-
-<div class="row">
-  {% block side %}
-  {% endblock %}
-
+<div class="container-fluid" id="main">
   {% block main %}
   {% endblock %}
 </div>
