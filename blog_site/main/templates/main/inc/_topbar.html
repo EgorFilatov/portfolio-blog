@@ -1,17 +1,17 @@
 {% load static %}
 
 
-<nav class="navbar navbar-expand-md sticky-top" id="topbar">
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark" id="topbar">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header navbar-nav mr-auto">
       <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'main/img/favicon.png' %}"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topbar_collapse" aria-controls="topbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span><img src="{% static 'main/img/toggler-icon.png' %}" id="toggler-icon"></span>
+      <button class="navbar-toggler navbar-nav mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#topbar_collapse" aria-controls="topbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
     </div>
 
     <div class="collapse navbar-collapse" id="topbar_collapse">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" aria-current="page" href="{% url 'home' %}">Обо мне</a>
         </li>
@@ -21,20 +21,30 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'contacts' %}">Контакты</a>
         </li>
+      </ul>
+
+      <form class="navbar-form mx-auto" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Поиск на сайте...">
+          </div>
+        <button type="submit" class="btn btn-default" id="search_button">Найти</button>
+      </form>
+
+      <ul class="navbar-nav ml-auto">
         {% if request.user.is_authenticated %}
           <li class="nav-item">
-              <a class="nav-link pull-right" href="#">Добро пожаловать, {{ user.first_name }}</a>
+            <a class="nav-link pull-right" href="#">Добро пожаловать, {{ user.first_name }}</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link pull-right" href="{% url 'user_logout' %}">Выйти</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link pull-right" href="{% url 'user_logout' %}">Выйти</a>
+        </li>
         {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_registration' %}">Зарегистрироваться</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_login' %}">Войти</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'user_registration' %}">Зарегистрироваться</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'user_login' %}">Войти</a>
+        </li>
         {% endif %}
       </ul>
     </div>

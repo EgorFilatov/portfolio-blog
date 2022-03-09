@@ -6,16 +6,9 @@
 {% endblock %}
 
 
-    <div class="side">
-        {% include 'main/inc/_sidebar.html' %}
-    </div>
-
-
-
 {% block main %}
-    <div class="main">
-        {% include 'main/inc/_news_card.html' %}
-    </div>
+    {% include 'main/inc/_categories_bar.html' %}
+    {% include 'main/inc/_news_card.html' %}
 {% endblock %}
 
 

@@ -30,7 +30,7 @@
                 {% for el in education %}
                     <div class="col-md-6">
                         <h3>{{ el.degree }}</h3>
-                        <br/>{{ el.place_of_study }}<br/>
+                        <a>{{ el.place_of_study }}</a>
                     </div>
                     <div class="col-md-3">
                        <a>{{ el.date_of_admission }}-{{ el.date_of_graduation }}</a>
@@ -54,8 +54,8 @@
                 {% for el in work %}
                     <div class="col-md-6">
                         <h3>{{ el.position }}</h3>
-                        <br/>{{ el.company }}<br/>
-                        <br/>{{ el.responsibilities }}<br/>
+                        <a>{{ el.company }}</a><br>
+                        <a>{{ el.responsibilities }}</a>>
                     </div>
                     <div class="col-md-3">
                        <a>{{ el.date_of_employment }}-{{ el.date_of_dismissal }}</a>

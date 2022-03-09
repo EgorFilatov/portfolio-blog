@@ -1,429 +1,154 @@
-/**
-*  Template Name: Kelvin
-*  Template URL: https://templatemag.com/kelvin-bootstrap-resume-template/
-*  Author: TemplateMag.com
-*  License: https://templatemag.com/license/
-*/
-
 body {
-  background-color: #f2f2f2;
-  font-family: "Times New Roman", Georgia, Serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: #555;
-  -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Titles */
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-  color: #333;
-}
-
-/* Paragraph & Typographic */
-
-p {
-  line-height: 28px;
-  margin-bottom: 25px;
-}
-
-.centered {
-  text-align: center;
-}
-
-/* Links */
-
-a {
-  color: #1abc9c;
-  word-wrap: break-word;
-  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-  transition: color 0.1s ease-in, background 0.1s ease-in;
-}
-
-a:hover, a:focus {
-  color: #7b7b7b;
-  text-decoration: none;
-  outline: 0;
-}
-
-a:before, a:after {
-  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-  transition: color 0.1s ease-in, background 0.1s ease-in;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
 
 /*---------------------------------------------------
-3.1 Topbar
+Header
 ---------------------------------------------------*/
+#header {
 
-#section-topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10000;
-  overflow: visible;
-  font: normal 16px/24px 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 80px; /* some padding */
+  text-align: center; /* center the text */
+  background: #1abc9c; /* green background */
+  color: white; /* white text color */
 }
 
-#section-topbar a {
-  color: #fff;
+/* Increase the font size of the <h1> element */
+#header h1 {
+  font-size: 40px;
+  text-shadow: 1px 1px 5px;
 }
 
-#topbar-inner {
-  background: #111;
-  line-height: 0;
-  text-align: center;
+#summary_btn {
+
 }
 
-/*
-Top Bar
+#summary_btn a {
+  width: auto;
+  background-color: #333;
+  border-color: #333;
+  -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+  -o-transition: all 0.3s 0.01s ease;
+  -webkit-transition: all 0.3s 0.01s ease;
+}
 
-By default, top navigation bar uses "fixed" position
-*/
+#summary_btn a:hover {
+  background-color: #ddd; /* Grey background color */
+}
 
-#section-topbar ul#nav {
-  display: inline-block;
-  position: relative;
+
+/*---------------------------------------------------
+Topbar
+---------------------------------------------------*/
+#topbar {
+  background-color: #333; /* Dark background color */
+  height: auto;
   margin: 0;
-  padding: 0;
-  border-right: 1px solid #222;
-  /* For IE, the outcast */
-  zoom: 1;
-  *display: inline;
+  border-radius: 0;
+}
+.navbar-brand {
+  display: table;
 }
 
-
-#section-topbar ul#nav>li {
-  display: block;
-  float: left;
-  padding: 0;
-}
-
-
-#section-topbar ul#nav a {
-  display: block;
-  font-size 11px;
-  text-decoration: none;
-  padding: 18px 20px 18px 20px;
-  border-left: 1px solid #222;
-}
-
-
-#section-topbar ul#nav a:focus {
-  background: #111;
-  text-decoration: none;
-  border-left: 1px solid #111;
-}
-
-
-#section-topbar ul#nav a:hover {
-  background: #222;
-  text-decoration: none;
-  border-left: 1px solid #111;
-}
-
-
-#section-topbar i {
-  font-size: 25px;
-}
-
-
-
-
-
-
-#navigation {
-float: left;
-width: 200px;
-background-color: #2c3e50;
-height: auto;
-}
-
-
-#navigation a {
-    color: white;
-}
-
-
-#navigation a:hover {
-    color: #7b7b7b;
-}
-
-
-
-
-#news {
-    margin-left: 200px;
-    padding: 50px;
-}
-
-#news h5 {
-    text-align:center;
-    color: #34495e;
-    font-weight: 700;
-}
-
-#news p {
-    color: #2f2f2f;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*---------------------------------------------------
-SECTION WRAPS
----------------------------------------------------*/
-
-/* Header Wrap */
-
-#headerwrap {
-  background: url(../img/header-bg.jpg) no-repeat center top;
-  margin-top: 60px;
-  padding-top: 140px;
-  text-align: center;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 500px;
-  width: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#headerwrap h1 {
-  font-size: 80px;
-  color: white;
-}
-
-#headerwrap h3 {
-  font-size: 20px;
-  color: white;
-}
-
-/* Intnro Wrap */
-
-#intro {
-  background: #2c3e50;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  color: white;
-}
-
-#intro h5, p {
-  color: white;
-}
-
-#intro i {
-  color: white;
-  font-size: 20px;
-  padding-right: 8px;
+.navbar-brand>img {
+  width: 50%;
+  display: table-cell;
   vertical-align: middle;
 }
 
-#skillswrap {
-  background: #2c3e50;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  color: white;
+#toggler-icon {
+    width: 10%;
 }
 
-#skillswrap h5, p {
-  color: white;
+#topbar li {
+  border-right: 1px solid #222;
 }
 
-#footwrap {
-  background: #2f2f2f;
-  padding-top: 50px;
-  padding-bottom: 50px;
+.nav-link {
+  color: white !important;
+  text-decoration: none;
 }
 
-#footwrap p {
-  color: white;
+#topbar a {
+  padding: 14px 20px;
+  text-decoration: none;
 }
 
-#footwrap h5 {
-  color: white;
+#topbar li {
+  -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+  -o-transition: all 0.3s 0.01s ease;
+  -webkit-transition: all 0.3s 0.01s ease;
 }
 
-#footwrap t {
-  font-weight: 700;
-}
-
-#footwrap i {
-  padding-right: 8px;
-  color: #1abc9c;
+#topbar li:hover {
+  background-color: #ddd; /* Grey background color */
 }
 
 
-/* Global Values */
-
-.desc {
-  padding-top: 50px;
+/*---------------------------------------------------
+Sidebar
+---------------------------------------------------*/
+.sidebar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #333; /* Dark background color */
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
-.desc p {
-  color: #2f2f2f;
+.sidebar a {
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: left; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+  height: 50px;
+  -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+  -o-transition: all 0.3s 0.01s ease;
+  -webkit-transition: all 0.3s 0.01s ease;
 }
 
-.desc t {
-  color: #34495e;
-  font-weight: 700;
+/* Change color on hover/mouse-over */
+.sidebar a:hover {
+  background-color: #ddd; /* Grey background color */
+  color: black; /* Black text color */
 }
 
-.desc imp {
-  padding: 6px;
-  color: white;
-  background: #34495e;
+
+/*---------------------------------------------------
+Main
+---------------------------------------------------*/
+#education {
+    padding: 10px;
 }
 
-.desc more {
-  color: #95a5a6;
+#work {
+    padding: 10px;
 }
 
-sm {
-  font-size: 12px;
+#skills {
+    padding: 10px;
 }
 
-/* Contact Form */
-
-.contact-form label {
-  color: #999;
+/*---------------------------------------------------
+Footer
+---------------------------------------------------*/
+.footer {
+  padding: 20px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #ddd; /* Grey background */
 }
 
-.contact-form input, .contact-form textarea {
-  padding: 10px 12px;
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-  height: auto;
-}
 
-.contact-form .form-send {
-  text-align: center;
-}
 
-.contact-form .form-send button {
-  background: #44bbaa;
-  border: 0;
-  padding: 10px 30px;
-  color: #fff;
-  transition: 0.4s;
-  cursor: pointer;
-}
 
-.contact-form .form-send button:hover {
-  background: #23c8b1;
-}
+/*---------------------------------------------------
+About
+---------------------------------------------------*/
 
-.contact-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
 
-.contact-form .loading {
-  display: none;
-  color: #555;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-  margin: 15px 0;
-}
 
-.contact-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
 
-@-webkit-keyframes animate-loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
 
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 
-@keyframes animate-loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.contact-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin: 15px 0;
-}
-
-.contact-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin: 15px 0;
-}
