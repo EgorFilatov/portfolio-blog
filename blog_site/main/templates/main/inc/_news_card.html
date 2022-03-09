@@ -1,19 +1,30 @@
 <div class="container-fluid" id="news">
     <div id="news_card" class="card text-center">
         {% for el in news %}
-        <div class="card-header">{{ el.category }}</div>
             <div class="card-body">
-                {% if el.image %}
-                <img src="{{ el.image.url }}" class="card-img-top" alt="...">
-                {% endif %}
-                <h5 class="card-title">{{ el.header }}</h5>
+
+                <div class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            {% if el.image %}
+                                <a href="{{ el.get_absolute_url }}"><img src="{{ el.image.url }}"></a>
+                            {% endif %}
+                            <div class="carousel-caption d-none d-sm-block">
+                                <p>{{ el.category }}</p>
+                                <a class="h5" href="{{ el.get_absolute_url }}">{{ el.header }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <p class="card-text">{{ el.annotation }}</p>
-                <a href="{{ el.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
             </div>
         <div class="card-footer text-muted">
             {{ el.created_at }}
         </div>
-        <hr>
-            {% endfor %}
+        {% endfor %}
     </div>
 </div>
+
+
+

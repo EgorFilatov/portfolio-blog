@@ -38,14 +38,10 @@
 
 <body>
 
-
 {% include 'main/inc/_topbar.html' %}
 
-
-<div class="container-fluid" id="header">
-  {% block header %}
-  {% endblock %}
-</div>
+{% block header %}
+{% endblock %}
 
 
 {% block main %}

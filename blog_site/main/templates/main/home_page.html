@@ -4,17 +4,18 @@
 
 
 {% block header %}
-    <div class="row">
-        <div class="col-md-12">
-            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-            <a>{{ user.profession }} | {{ user.email }}</a><br>
-            <a>{{ user.about }}</a><br>
-            <div id="summary_btn">
-                <a href="{% url 'contacts' %}" class="btn btn-primary">Моё резюме</a>
+    <div class="container-fluid" id="header">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <a>{{ user.profession }} | {{ user.email }}</a><br>
+                <a>{{ user.about }}</a><br>
+                <div id="summary_btn">
+                    <a href="{% url 'contacts' %}" class="btn btn-primary">Моё резюме</a>
+                </div>
             </div>
         </div>
     </div>
-
 {% endblock %}
 
 

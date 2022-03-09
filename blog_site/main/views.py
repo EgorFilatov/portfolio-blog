@@ -20,7 +20,9 @@ class BlogNewsList(ListView):
 
 def category(request, cat_id):
     news = News.objects.filter(category_id=cat_id)
-    return render(request, "main/category.html", {'news': news,})
+    category = Categories.objects.get(pk=cat_id)
+    return render(request, "main/category.html", {'news': news,
+                                                  'category': category,})
 
 
 class BlogNewsDetail(DetailView):

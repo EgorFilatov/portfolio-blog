@@ -1,31 +1,33 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-
-{% block headerwrap %}
-<div id="headerwrap">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-12">
-          <h1>Новости</h1>
-        </div>
-        <!--/.col-lg-12 -->
-      </div>
-      <!--/.row -->
-    </div>
-    <!--/.container -->
-  </div>
-  <!--/.#headerwrap -->
-{% endblock %}
-
-
 {% block main %}
-    {% include 'main/inc/_sidebar.html' %}
-    <div id="news" class="card">
-        <img src="{{ news.image.url }}" class="card-img-top" alt="...">
-        <h5>{{ news.header }}</h5>
-        <p>{{ news.full_text }}</p>
-        <a href="{% url 'news_update' news.pk %}" class="btn btn-primary">Редактировать</a>
-        <a href="{% url 'news_delete' news.pk %}" class="btn btn-primary">Удалить</a>
+    {% include 'main/inc/_categories_bar.html' %}
+    <div class="container-fluid" id="news_detail">
+        <div id="news_card" class="card text-center">
+                <div class="card-body">
+
+                    <div class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                {% if el.image %}
+                                    <a href="{{ el.get_absolute_url }}"><img src="{{ news.image.url }}"></a>
+                                {% endif %}
+                                <div class="carousel-caption d-none d-sm-block">
+                                    <p>{{ news.category }}</p>
+                                    <a class="h5" href="{{ el.get_absolute_url }}">{{ news.header }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>{{ news.full_text }}</p>
+                    <a href="{% url 'news_update' news.pk %}" class="btn btn-primary">Редактировать</a>
+                    <a href="{% url 'news_delete' news.pk %}" class="btn btn-primary">Удалить</a>
+                </div>
+            <div class="card-footer text-muted">
+                {{ el.created_at }}
+            </div>
+        </div>
     </div>
 {% endblock %}
+

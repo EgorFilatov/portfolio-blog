@@ -96,8 +96,31 @@ Categories bar
   background-color: #666666; /* Grey background color */
 }
 /*---------------------------------------------------
-Main
+News card
 ---------------------------------------------------*/
+.carousel-inner img {
+  max-width: 60%;
+
+}
+
+.carousel-caption {
+  position: absolute;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.carousel-caption a {
+  text-decoration: none;
+}
+
+.carousel-caption p {
+  background-color: #1abc9c;
+  width: 100px;
+}
+
+.carousel-caption a:hover {
+  color: #cccccc;
+}
 
 
 /*---------------------------------------------------
