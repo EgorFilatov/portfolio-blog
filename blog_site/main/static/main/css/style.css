@@ -99,13 +99,12 @@ Categories bar
 News card
 ---------------------------------------------------*/
 .carousel-inner img {
-  max-width: 60%;
-
+  max-width: 800px;
 }
 
 .carousel-caption {
   position: absolute;
-  max-width: 60%;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -136,8 +135,30 @@ Footer
 
 
 /*---------------------------------------------------
-About
+News add
 ---------------------------------------------------*/
+#news_add_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#news_add_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#news_add_form button {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  width: 100%;
+}
+
+#news_add_form button:hover {
+  background-color: #666666;
+}
 
 
 

@@ -2,27 +2,20 @@
 {% load static %}
 
 
-{% block headerwrap %}
-<div id="headerwrap">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-12">
-          <h1>Новости</h1>
-        </div>
-        <!--/.col-lg-12 -->
-      </div>
-      <!--/.row -->
+{% block header %}
+    <div class="container-fluid" id="header">
+        <h1>Добавить новость</h1>
     </div>
-    <!--/.container -->
-  </div>
-  <!--/.#headerwrap -->
 {% endblock %}
 
 
 {% block main %}
-<form method="post" enctype="multipart/form-data" id="news_add_form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Добавить</button>
-</form>
+    <div class="container-fluid" id="news_add">
+        <form method="post" enctype="multipart/form-data" id="news_add_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><button type="submit" class="btn btn-primary">Добавить</button></p>
+        </form>
+
+    </div>
 {% endblock %}
