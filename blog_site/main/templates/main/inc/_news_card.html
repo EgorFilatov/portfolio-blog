@@ -1,6 +1,6 @@
 <div class="container-fluid" id="news">
     <div id="news_card" class="card text-center">
-        {% for el in news %}
+        {% for el in page_obj.object_list %}
             <div class="card-body">
 
                 <div class="carousel slide" data-bs-ride="carousel">
