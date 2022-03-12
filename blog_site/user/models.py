@@ -22,9 +22,9 @@ class CustomUser(AbstractUser):
 
 class WorkExperiance(models.Model):
     custom_user = models.ForeignKey('CustomUser', null=True, blank=True, on_delete=models.PROTECT, verbose_name='Пользователь')
-    company = models.CharField(verbose_name='Компания', help_text='Компания', max_length=150)
-    position = models.CharField(verbose_name='Должность', help_text='Должность', max_length=150)
-    responsibilities = models.TextField(verbose_name='Обязанности', help_text='Обязанности', blank=True)
+    company = models.CharField(verbose_name='Компания', max_length=150)
+    position = models.CharField(verbose_name='Должность', max_length=150)
+    responsibilities = models.TextField(verbose_name='Обязанности', blank=True)
     date_of_employment = models.DateField(verbose_name='Дата приема на работу', auto_now_add=False, blank=True)
     date_of_dismissal = models.DateField(verbose_name='Дата увольнения', auto_now_add=False, blank=True)
 
@@ -39,8 +39,8 @@ class WorkExperiance(models.Model):
 
 class Education(models.Model):
     custom_user = models.ForeignKey('CustomUser', null=True, blank=True, on_delete=models.PROTECT, verbose_name='Пользователь')
-    place_of_study = models.CharField(verbose_name='Место учебы', help_text='Место учебы', max_length=150)
-    degree = models.CharField(verbose_name='Степень', help_text='Степень', max_length=150, blank=True)
+    place_of_study = models.CharField(verbose_name='Место учебы', max_length=150)
+    degree = models.CharField(verbose_name='Степень', max_length=150, blank=True)
     date_of_admission = models.DateField(verbose_name='Дата поступления', auto_now_add=False, blank=True)
     date_of_graduation = models.DateField(verbose_name='Дата окончания', auto_now_add=False, blank=True)
 
@@ -55,8 +55,8 @@ class Education(models.Model):
 
 class SocialLinks(models.Model):
     custom_user = models.ForeignKey('CustomUser', null=True, blank=True, on_delete=models.PROTECT, verbose_name='Пользователь')
-    social_link_name = models.CharField(verbose_name='Название социальной сети', help_text='Название социальной сети', max_length=150)
-    link_value = models.CharField(verbose_name='Ссылка', help_text='Ссылка', max_length=150)
+    social_link_name = models.CharField(verbose_name='Название социальной сети', max_length=150)
+    link_value = models.CharField(verbose_name='Ссылка', max_length=150)
 
     def __str__(self):
         return self.social_link_name

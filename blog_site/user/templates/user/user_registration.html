@@ -2,27 +2,20 @@
 {% load static %}
 
 
-{% block headerwrap %}
-<div id="headerwrap">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-12">
-          <h1>Новости</h1>
-        </div>
-        <!--/.col-lg-12 -->
-      </div>
-      <!--/.row -->
+{% block header %}
+    <div class="container-fluid" id="header">
+        <h1>Регистрация</h1>
     </div>
-    <!--/.container -->
-  </div>
-  <!--/.#headerwrap -->
 {% endblock %}
 
 
 {% block main %}
-<form method="post" enctype="multipart/form-data" id="register_form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-</form>
+    <div class="container-fluid" id="user_registration">
+        <form method="post" enctype="multipart/form-data" id="user_registration_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><button type="submit" class="btn btn-primary">Зарегистрироваться</button></p>
+        </form>
+
+    </div>
 {% endblock %}
