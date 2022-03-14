@@ -205,3 +205,30 @@ User login
 #user_login_form button:hover {
   background-color: #666666;
 }
+
+/*---------------------------------------------------
+News detail
+---------------------------------------------------*/
+#news_detail .btn-primary {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+#news_detail .btn-primary:hover {
+  background-color: #666666;
+}
+
+/*---------------------------------------------------
+Pagination
+---------------------------------------------------*/
+.page-item.active .page-link {
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+.pagination {
+
+
+}
+
