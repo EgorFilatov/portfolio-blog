@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block header %}
+    <div class="container-fluid" id="header">
+        <h1>Редактирование информации о пользователе</h1>
+    </div>
+{% endblock %}
+
+
+{% block main %}
+    <div class="container-fluid" id="user_update">
+        <form method="post" enctype="multipart/form-data" id="user_update_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><button type="submit" class="btn btn-primary">Редактировать</button></p>
+        </form>
+
+    </div>
+{% endblock %}

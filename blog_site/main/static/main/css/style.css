@@ -163,6 +163,12 @@ User registration
   margin: 0 auto;
 }
 
+#user_registration_form ul {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
 #user_registration_form p {
   padding: 10px;
   max-width: 40%;
@@ -189,12 +195,6 @@ User login
   margin: 0 auto;
 }
 
-#user_login_form p {
-  padding: 10px;
-  max-width: 40%;
-  margin: 0 auto;
-}
-
 #user_login_form button {
   background-color: #333;
   color: white;
@@ -203,6 +203,38 @@ User login
 }
 
 #user_login_form button:hover {
+  background-color: #666666;
+}
+
+/*---------------------------------------------------
+User update
+---------------------------------------------------*/
+#user_update_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_update_form ul {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_update_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_update_form button {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  width: 100%;
+}
+
+#user_update_form button:hover {
   background-color: #666666;
 }
 
