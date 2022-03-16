@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from .models import CustomUser
 from django import forms
+from .models import CustomUser
+
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -46,4 +47,10 @@ class CustomUserForm(forms.ModelForm):
             'summary': forms.FileInput(attrs={'class': 'form-control'}),
             'Phone': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+
+class CustomUserContactForm(forms.Form):
+    subject = forms.CharField(label='Тема',  widget=forms.TextInput(attrs={'class': 'form-control'}))
+    body = forms.CharField(label='Текст',  widget=forms.TextInput(attrs={'class': 'form-control'}))
+
 

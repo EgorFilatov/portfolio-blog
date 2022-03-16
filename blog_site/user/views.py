@@ -1,8 +1,9 @@
 from django.contrib.auth import login, logout
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserForm
+from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserForm, CustomUserContactForm
 from .models import *
 from .import urls
 from user.models import *
@@ -37,7 +38,14 @@ def user_logout(request):
 
 
 def contacts(request):
-    return render(request, "user/user_contacts.html", {})
+    if request.method == 'POST':
+        form = CustomUserContactForm(request.POST)
+        if form.is_valid():
+            send_mail(form.cleaned_data['subject'], form.cleaned_data['body'], 'egih.filatov@yandex.ru', ['23egih23@gmail.com'], fail_silently=False)
+            return redirect('home')
+    else:
+        form = CustomUserContactForm()
+    return render(request, "user/user_contacts.html", {'form': form,})
 
 
 class UpdateUser(UpdateView):

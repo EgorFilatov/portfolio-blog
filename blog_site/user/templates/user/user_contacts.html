@@ -1,7 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-
 {% block header %}
     <div class="container-fluid" id="header">
         <h1>Контакты</h1>
@@ -10,16 +9,19 @@
 
 
 {% block main %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6" id="contacts">
-            <p>Мобильный телефон: {{ user.Phone }}</p>
-            <p>e-mail: {{ user.email }}</p>
-        </div>
-         <div class="col-md-6" >
-            <p>Мобильный телефон: {{ user.Phone }}</p>
-            <p>e-mail: {{ user.email }}</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6" id="contacts">
+                <p>Мобильный телефон: {{ user.Phone }}</p>
+                <p>e-mail: {{ user.email }}</p>
+            </div>
+             <div class="col-md-6" >
+                <form method="post" enctype="multipart/form-data" id="user_login_form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p><button type="submit" class="btn btn-primary">Отправить</button></p>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
