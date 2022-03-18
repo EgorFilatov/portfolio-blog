@@ -2,12 +2,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
 /*---------------------------------------------------
 Header
 ---------------------------------------------------*/
 #header {
-
   padding: 80px; /* some padding */
   text-align: center; /* center the text */
   background: #1abc9c; /* green background */
@@ -20,10 +18,6 @@ Header
   text-shadow: 1px 1px 5px;
 }
 
-#summary_btn {
-
-}
-
 #summary_btn a {
   width: auto;
   background-color: #333;
@@ -34,44 +28,34 @@ Header
 }
 
 #summary_btn a:hover {
-  background-color: #ddd; /* Grey background color */
+  background-color: #666666; /* Grey background color */
 }
-
 
 /*---------------------------------------------------
 Topbar
 ---------------------------------------------------*/
 #topbar {
-  background-color: #333; /* Dark background color */
-  height: auto;
-  margin: 0;
+  background-color: #333!important; /* Dark background color */
   border-radius: 0;
-}
-.navbar-brand {
-  display: table;
+  margin: 0 auto;
 }
 
 .navbar-brand>img {
   width: 50%;
   display: table-cell;
-  vertical-align: middle;
+  margin: 0 auto;
 }
 
-#toggler-icon {
-    width: 10%;
-}
-
-#topbar li {
-  border-right: 1px solid #222;
+#search_button {
+  color: #333;
+  background-color: white;
 }
 
 .nav-link {
   color: white !important;
-  text-decoration: none;
 }
 
 #topbar a {
-  padding: 14px 20px;
   text-decoration: none;
 }
 
@@ -82,53 +66,57 @@ Topbar
 }
 
 #topbar li:hover {
-  background-color: #ddd; /* Grey background color */
+  background-color: #666666; /* Grey background color */
 }
-
 
 /*---------------------------------------------------
-Sidebar
+Categories bar
 ---------------------------------------------------*/
-.sidebar {
-  overflow: hidden; /* Hide overflow */
-  background-color: #333; /* Dark background color */
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+#categories_bar {
+  background-color: #1abc9c;
 }
 
-.sidebar a {
-  display: block; /* Change the display to block, for responsive reasons (see below) */
-  color: white; /* White text color */
-  text-align: left; /* Center the text */
-  padding: 14px 20px; /* Add some padding */
-  text-decoration: none; /* Remove underline */
-  height: 50px;
+#categories_bar a {
+  text-decoration: none;
+  color: white !important;
+  text-align: center;
+}
+
+#categories_bar li {
+  list-style: none;
   -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
   -o-transition: all 0.3s 0.01s ease;
   -webkit-transition: all 0.3s 0.01s ease;
 }
 
-/* Change color on hover/mouse-over */
-.sidebar a:hover {
-  background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
+#categories_bar li:hover {
+  background-color: #666666; /* Grey background color */
 }
-
 
 /*---------------------------------------------------
-Main
+News card
 ---------------------------------------------------*/
-#education {
-    padding: 10px;
+.carousel-inner img {
+  max-width: 800px;
 }
 
-#work {
-    padding: 10px;
+.carousel-caption {
+  position: absolute;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-#skills {
-    padding: 10px;
+.carousel-caption a {
+  text-decoration: none;
+}
+
+.carousel-caption p {
+  background-color: #1abc9c;
+  width: 100px;
+}
+
+.carousel-caption a:hover {
+  color: #cccccc;
 }
 
 /*---------------------------------------------------
@@ -137,18 +125,142 @@ Footer
 .footer {
   padding: 20px; /* Some padding */
   text-align: center; /* Center text*/
-  background: #ddd; /* Grey background */
+  background: #666666; /* Grey background */
 }
 
+/*---------------------------------------------------
+News add
+---------------------------------------------------*/
+#news_add_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
 
+#news_add_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
 
+#news_add_form button {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  width: 100%;
+}
+
+#news_add_form button:hover {
+  background-color: #666666;
+}
 
 /*---------------------------------------------------
-About
+User registration
 ---------------------------------------------------*/
+#user_registration_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_registration_form ul {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_registration_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_registration_form button {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  width: 100%;
+}
+
+#user_registration_form button:hover {
+  background-color: #666666;
+}
+
+/*---------------------------------------------------
+User login
+---------------------------------------------------*/
+#user_login_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_login_form button {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  width: 100%;
+}
+
+#user_login_form button:hover {
+  background-color: #666666;
+}
+
+/*---------------------------------------------------
+User update
+---------------------------------------------------*/
+#user_update_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_update_form ul {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_update_form p {
+  padding: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#user_update_form button {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  width: 100%;
+}
+
+#user_update_form button:hover {
+  background-color: #666666;
+}
+
+/*---------------------------------------------------
+News detail
+---------------------------------------------------*/
+#news_detail .btn-primary {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+#news_detail .btn-primary:hover {
+  background-color: #666666;
+}
+
+/*---------------------------------------------------
+Pagination
+---------------------------------------------------*/
+.page-item.active .page-link {
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+.pagination {
 
 
-
-
-
+}
 

@@ -1,11 +1,13 @@
 from django.db import models
 from django.urls import reverse, reverse_lazy
+from ckeditor.fields import RichTextField
 
 
 class News(models.Model):
     header = models.CharField(verbose_name='Заголовок', max_length=150)
     annotation = models.TextField(verbose_name='Аннотация')
-    full_text = models.TextField(verbose_name='Текст статьи')
+    full_text = RichTextField(blank=True, null=True, verbose_name='Текст статьи')
+    #full_text = models.TextField(blank=True, null=True, verbose_name='Текст статьи')
     image = models.ImageField(verbose_name='Изображение', blank=True, upload_to='media/img/news_img/%Y/%m/%d/')
     created_at = models.DateTimeField(verbose_name='Дата публикации', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата редактирования', auto_now=True)

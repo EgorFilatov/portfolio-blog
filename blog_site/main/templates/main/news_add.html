@@ -13,6 +13,7 @@
     <div class="container-fluid" id="news_add">
         <form method="post" enctype="multipart/form-data" id="news_add_form">
             {% csrf_token %}
+            {{ form.media }}
             {{ form.as_p }}
             <p><button type="submit" class="btn btn-primary">Добавить</button></p>
         </form>

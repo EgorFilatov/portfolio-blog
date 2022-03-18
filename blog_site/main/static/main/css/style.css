@@ -227,6 +227,13 @@ User update
   margin: 0 auto;
 }
 
+.django-ckeditor-widget {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
 #user_update_form button {
   background-color: #333;
   color: white;
