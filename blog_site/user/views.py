@@ -41,7 +41,13 @@ def contacts(request):
     if request.method == 'POST':
         form = CustomUserContactForm(request.POST)
         if form.is_valid():
-            send_mail(form.cleaned_data['subject'], form.cleaned_data['body'], 'egih.filatov@yandex.ru', ['23egih23@gmail.com'], fail_silently=False)
+            send_mail(
+                form.cleaned_data['subject'],  # subject
+                form.cleaned_data['message'],  # message
+                '23egih23@gmail.com',  # from email
+                ['egor.filatov@live.com'],  # to email
+            )
+
             return redirect('home')
     else:
         form = CustomUserContactForm()

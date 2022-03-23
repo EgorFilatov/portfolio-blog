@@ -51,6 +51,8 @@ class CustomUserForm(forms.ModelForm):
 
 class CustomUserContactForm(forms.Form):
     subject = forms.CharField(label='Тема',  widget=forms.TextInput(attrs={'class': 'form-control'}))
-    body = forms.CharField(label='Текст',  widget=forms.TextInput(attrs={'class': 'form-control'}))
+    message = forms.CharField(label='Текст',  widget=forms.TextInput(attrs={'class': 'form-control'}))
+    message_email = forms.CharField(label='Ваша почта', widget=forms.TextInput(attrs={'class': 'form-control'}))
+
 
 
