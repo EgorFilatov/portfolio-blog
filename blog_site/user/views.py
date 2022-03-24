@@ -1,23 +1,20 @@
 from django.contrib.auth import login, logout
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .forms import CustomUserCreationForm, CustomUserLoginForm
+from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserForm, CustomUserContactForm
 from .models import *
 from .import urls
 from user.models import *
 
 
-def user_registration(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, "user/user_registration.html", {'form': form,})
+class CreateUser(CreateView):
+    form_class = CustomUserCreationForm
+    template_name = 'user/user_registration.html'
+    success_url = reverse_lazy('home')
+
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -37,9 +34,27 @@ def user_logout(request):
 
 
 def contacts(request):
-    return render(request, "user/user_contacts.html", {})
+    if request.method == 'POST':
+        form = CustomUserContactForm(request.POST)
+        if form.is_valid():
+            send_mail(
+                form.cleaned_data['subject'],  # subject
+                form.cleaned_data['message'],  # message
+                '23egih23@gmail.com',  # from email
+                ['egor.filatov@live.com'],  # to email
+            )
+
+            return redirect('home')
+    else:
+        form = CustomUserContactForm()
+    return render(request, "user/user_contacts.html", {'form': form,})
 
 
+class UpdateUser(UpdateView):
+    model = CustomUser
+    form_class = CustomUserForm
+    template_name = 'user/user_update.html'
+    success_url = reverse_lazy('home')
 
 
 

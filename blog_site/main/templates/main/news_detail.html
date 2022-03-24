@@ -2,31 +2,39 @@
 {% load static %}
 
 {% block main %}
-    {% include 'main/inc/_categories_bar.html' %}
-    <div class="container-fluid" id="news">
-        <div id="news_detail" class="card text-center">
-            <div class="card-body">
-                <div class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            {% if news.image %}
-                            <img src="{{ news.image.url }}">
-                            {% endif %}
-                            <div class="carousel-caption d-none d-sm-block">
-                                <p>{{ el.category }}</p>
-                                <a class="h5">{{ news.header }}</a>
-                            </div>
+
+
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ news.image.url }}')">
+
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{ news.header }}</h1>
+                            <span class="meta">
+                                Опубликовано {{ news.created_at }}
+                            </span>
                         </div>
                     </div>
                 </div>
-                <p class="card-text">{{ news.full_text }}</p>
-                {% if request.user.is_authenticated %}
-                    <a href="{% url 'news_update' news.pk %}" class="btn btn-primary">Редактировать</a>
-                    <a href="{% url 'news_delete' news.pk %}" class="btn btn-primary">Удалить</a>
-                {% endif %}
             </div>
-        </div>
-    </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>{{ news.full_text|safe }}</p>
+                        <a href="{% url 'news_update' news.pk %}" class="btn btn-primary">Редактировать</a>
+                        <a href="{% url 'news_delete' news.pk %}" class="btn btn-primary">Удалить</a>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+
 {% endblock %}
 
 

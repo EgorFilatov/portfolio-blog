@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+from django.urls import reverse_lazy
+
+
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField(verbose_name='Дата рождения', auto_now_add=False, blank=True, null=True)
     profession = models.CharField(verbose_name='Профессия', help_text='Профессия', max_length=150, blank=True)
@@ -10,6 +13,9 @@ class CustomUser(AbstractUser):
     summary = models.FileField(verbose_name='Резюме', blank=True, upload_to='media/doc/user_doc/%Y/%m/%d/')
     Phone = models.CharField(verbose_name='Телефон', help_text='Телефон', max_length=50, blank=True)
     skills = models.TextField(verbose_name='Навыки', help_text='Навыки', blank=True)
+
+    def get_absolute_url(self):
+        return reverse_lazy('user', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.first_name

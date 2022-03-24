@@ -5,6 +5,17 @@ body {
 /*---------------------------------------------------
 Header
 ---------------------------------------------------*/
+header.masthead {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-top: calc(30rem + 50px);
+    padding-bottom: 8rem;
+    background: no-repeat center center;
+    background-color: #6c757d;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
 #header {
   padding: 80px; /* some padding */
   text-align: center; /* center the text */
@@ -124,7 +135,6 @@ Footer
 ---------------------------------------------------*/
 .footer {
   padding: 20px; /* Some padding */
-  text-align: center; /* Center text*/
   background: #666666; /* Grey background */
 }
 
@@ -154,54 +164,33 @@ News add
   background-color: #666666;
 }
 
+
+
+
+
 /*---------------------------------------------------
-User registration
+News detail
 ---------------------------------------------------*/
-#user_registration_form p {
-  padding: 10px;
-  max-width: 40%;
-  margin: 0 auto;
-}
-
-#user_registration_form p {
-  padding: 10px;
-  max-width: 40%;
-  margin: 0 auto;
-}
-
-#user_registration_form button {
+#news_detail .btn-primary {
   background-color: #333;
   color: white;
   border-color: #333;
-  width: 100%;
 }
 
-#user_registration_form button:hover {
+#news_detail .btn-primary:hover {
   background-color: #666666;
 }
 
 /*---------------------------------------------------
-User login
+Pagination
 ---------------------------------------------------*/
-#user_login_form p {
-  padding: 10px;
-  max-width: 40%;
-  margin: 0 auto;
+.page-item.active .page-link {
+  background-color: #333 !important;
+  border-color: #333 !important;
 }
 
-#user_login_form p {
-  padding: 10px;
-  max-width: 40%;
-  margin: 0 auto;
+.pagination {
+
+
 }
 
-#user_login_form button {
-  background-color: #333;
-  color: white;
-  border-color: #333;
-  width: 100%;
-}
-
-#user_login_form button:hover {
-  background-color: #666666;
-}

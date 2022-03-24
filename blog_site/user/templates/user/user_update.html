@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block header %}
+    <div class="container-fluid" id="header">
+        <h1>Редактирование информации о пользователе</h1>
+    </div>
+{% endblock %}
+
+
+{% block main %}
+<div class="container-fluid">
+        <div class="row">
+           <div class="col-md-4">
+           </div>
+
+           <div class="col-md-4">
+                <form method="post" enctype="multipart/form-data" id="user_registration_form">
+                    {% csrf_token %}
+                    <label for="{{ form.first_name.id_for_label }}" class="form-label">Ваше имя:</label>
+                    {{ form.first_name }}
+                    <br>
+                    <label for="{{ form.last_name.id_for_label }}" class="form-label">Ваша фамилия:</label>
+                    {{ form.last_name }}
+                    <br>
+                    <label for="{{ form.username.id_for_label }}" class="form-label">Логин:</label>
+                    {{ form.username }}
+                    <br>
+                    <label for="{{ form.email.id_for_label }}" class="form-label">E-mail:</label>
+                    {{ form.email }}
+                    <br>
+                    <label for="{{ form.about.id_for_label }}" class="form-label">Обо мне:</label>
+                    {{ form.about }}
+                    <br>
+                    <label for="{{ form.photo.id_for_label }}" class="form-label">Фото:</label>
+                    {{ form.photo }}
+                    <br>
+                    <label for="{{ form.summary.id_for_label }}" class="form-label">Резюме:</label>
+                    {{ form.summary }}
+                    <br>
+                    <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">Дата рождения:</label>
+                    {{ form.date_of_birth }}
+                    <br>
+                    <label for="{{ form.profession.id_for_label }}" class="form-label">Профессия:</label>
+                    {{ form.profession }}
+                    <br>
+                    <label for="{{ form.Phone.id_for_label }}" class="form-label">Телефон:</label>
+                    {{ form.Phone }}
+                    <br>
+
+                    <p><button type="submit" class="btn btn-primary">Обновить</button></p>
+                </form>
+           </div>
+        </div>
+    </div>
+{% endblock %}

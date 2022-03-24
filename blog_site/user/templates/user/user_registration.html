@@ -10,12 +10,36 @@
 
 
 {% block main %}
-    <div class="container-fluid" id="user_registration">
-        <form method="post" enctype="multipart/form-data" id="user_registration_form">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <p><button type="submit" class="btn btn-primary">Зарегистрироваться</button></p>
-        </form>
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-4">
+           </div>
 
+           <div class="col-md-4">
+                <form method="post" enctype="multipart/form-data" id="user_registration_form">
+                    {% csrf_token %}
+                    <label for="{{ form.first_name.id_for_label }}" class="form-label">Ваше имя:</label>
+                    {{ form.first_name }}
+                    <br>
+                    <label for="{{ form.last_name.id_for_label }}" class="form-label">Ваша фамилия:</label>
+                    {{ form.last_name }}
+                    <br>
+                    <label for="{{ form.username.id_for_label }}" class="form-label">Логин:</label>
+                    {{ form.username }}
+                    <br>
+                    <label for="{{ form.email.id_for_label }}" class="form-label">E-mail:</label>
+                    {{ form.email }}
+                    <br>
+                    <label for="{{ form.password1.id_for_label }}" class="form-label">Пароль:</label>
+                    <input type="password" class="form-control" id="id_password1" name="password1">
+                    <br>
+                    <label for="{{ form.password2.id_for_label }}" class="form-label">Повторите пароль:</label>
+                    <input type="password" class="form-control" id="id_password2" name="password2">
+                    <br>
+
+                    <p><button type="submit" class="btn btn-primary">Зарегистрироваться</button></p>
+                </form>
+           </div>
+        </div>
     </div>
 {% endblock %}
