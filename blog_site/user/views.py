@@ -43,11 +43,14 @@ def contacts(request):
                 '23egih23@gmail.com',  # from email
                 ['egor.filatov@live.com'],  # to email
             )
-
-            return redirect('home')
+            return redirect('success_message')
     else:
         form = CustomUserContactForm()
     return render(request, "user/user_contacts.html", {'form': form,})
+
+
+def success_message(request):
+    return render(request, "user/success_message.html", {})
 
 
 class UpdateUser(UpdateView):

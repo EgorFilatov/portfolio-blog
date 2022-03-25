@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block header %}
+
+
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{% static 'main/img/contact-bg.jpg' %}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Контакты</h1>
+                            <span class="subheading">Если у вас есть вопросы, свяжитесь со мной.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+
+
+{% block main %}
+<!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h1>Сообщение успешно отправлено!</h1>
+                        <p>Мой мобильный телефон: {{ user.Phone }}</p>
+                        <hr>
+                        <p>Мой email: {{ user.email }}</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}
