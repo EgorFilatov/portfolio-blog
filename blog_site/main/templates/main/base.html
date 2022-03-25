@@ -10,26 +10,23 @@
 
   <title>{{ user.first_name }} {{ user.last_name }}</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
   <link href="{% static 'main/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'main/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+
    <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap CSS File -->
-  <link href= "{% static 'main/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <!-- Libraries CSS Files -->
-  <link href="{% static 'main/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
   <!-- Main Stylesheet File -->
-  <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'main/css/styles.css' %}" rel="stylesheet">
 
 </head>
 
@@ -45,11 +42,50 @@
 {% endblock %}
 
 
-<footer class="footer">
-  {% block footer %}
-    <div class="container"><p class="m-0 text-center text-white">Minsk 2022</p></div>
-  {% endblock %}
-</footer>
+  <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="http://instagram.com/ega__filtv?utm_source=qr">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fa-brands fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://vk.com/egorfilatovslytsk">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fa-brands fa-vk fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/EgorFilatov">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fa-brands fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Егор Филатов, Минск 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
 
 <!-- Bootstrap core JS-->
