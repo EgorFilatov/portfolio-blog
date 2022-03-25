@@ -33,8 +33,15 @@
                         <div class="card-header">Поиск</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Поиск новостей..." aria-label="Поиск новостей..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Найти</button>
+                                <form class="navbar-form mx-auto" role="search" action="{% url 'search' %}" method="get">
+                                    <input class="form-control" type="text" placeholder="Поиск новостей..." aria-label="Поиск новостей..." aria-describedby="button-search" name="s"/>
+                                    <button class="btn btn-primary" id="button-search" type="submit">Найти</button>
+                                </form>
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -53,6 +60,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
+                                        <li><a href="{% url 'blog' %}">Все</a></li>
                                         {% if request.user.is_authenticated %}
                                             <li><a href="{% url 'news_add' %}">Добавить новость</a></li>
                                         {% endif %}
