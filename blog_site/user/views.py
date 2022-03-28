@@ -36,10 +36,12 @@ def user_logout(request):
 def contacts(request):
     if request.method == 'POST':
         form = CustomUserContactForm(request.POST)
+
         if form.is_valid():
+            message = 'Email от %s (%s): %s' % (form.cleaned_data['contact_name'], form.cleaned_data['contact_email'], form.cleaned_data['message'])
             send_mail(
-                form.cleaned_data['subject'],  # subject
-                form.cleaned_data['message'],  # message
+                'Письмо из портфолио сайта',  # subject
+                message,  # message
                 '23egih23@gmail.com',  # from email
                 ['egor.filatov@live.com'],  # to email
             )

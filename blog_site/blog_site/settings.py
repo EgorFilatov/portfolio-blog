@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'main.apps.MainConfig',
     'ckeditor',
+    'captcha',
 
 ]
 
@@ -210,3 +211,7 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+CAPTCHA_LETTER_ROTATION = (-10,10)
+CAPTCHA_FONT_SIZE = 30

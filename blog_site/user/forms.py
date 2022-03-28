@@ -1,3 +1,4 @@
+from captcha.fields import CaptchaField
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from django import forms
 from .models import CustomUser
@@ -56,8 +57,11 @@ class CustomUserForm(forms.ModelForm):
 
 
 class CustomUserContactForm(forms.Form):
-    subject = forms.CharField(label='Тема',  widget=forms.TextInput(attrs={'class': 'form-control'}))
+    contact_name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    contact_email = forms.CharField(label='Email', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    contact_phone_number = forms.CharField(label='Номер телефона',  widget=forms.TextInput(attrs={'class': 'form-control'}))
     message = forms.CharField(label='Текст',  widget=forms.TextInput(attrs={'class': 'form-control'}))
+    captcha = CaptchaField()
 
 
 
