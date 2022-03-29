@@ -19,13 +19,57 @@
 
 
 {% block main %}
-    <div class="container-fluid" id="news_add">
-        <form method="post" enctype="multipart/form-data" id="news_add_form">
-            {% csrf_token %}
-            {{ form.media }}
-            {{ form.as_p }}
-            <p><button type="submit" class="btn btn-primary">Добавить</button></p>
-        </form>
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- to get an API token!-->
+                    <form method="post" enctype="multipart/form-data" id="contactForm">
+                        {% csrf_token %}
+                        {{ form.media }}
 
+
+                        <label for="header">Заголовок</label>
+                        {{ form.header }}
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Необходимо ввести имя.</div>
+                        <br/>
+
+                        <label for="{{ form.annotation.id_for_label }}">Аннотация</label>
+                        {{ form.annotation }}
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Необходимо ввести аннотацию к статье.</div>
+                        <br/>
+
+                        <label for="{{ form.full_text.id_for_label }}">Текст статьи</label>
+                        {{ form.full_text }}
+                        <br/>
+                        <br/>
+
+                        <label for="{{ form.image.id_for_label }}">Изображение</label>
+                        {{ form.image }}
+                        <br/>
+
+                        <label for="{{ form.category.id_for_label }}">Категория</label>
+                        <br/>
+                        {{ form.category }}
+                        <br/>
+                        <br/>
+
+                        <!-- Submit success message-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Статья успешно отредактирована!</div>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Редактирования!</div></div>
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary" id="submitButton" type="submit">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+</main>
 {% endblock %}
