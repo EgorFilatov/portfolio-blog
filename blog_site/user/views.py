@@ -1,4 +1,7 @@
 from django.contrib.auth import login, logout
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -9,23 +12,33 @@ from .import urls
 from user.models import *
 
 
-class CreateUser(CreateView):
+class CreateUser(SuccessMessageMixin, CreateView):
     form_class = CustomUserCreationForm
     template_name = 'user/user_registration.html'
-    success_url = reverse_lazy('home')
+    success_message = "Вы успешно зарегистрировались"
+
+    def get_success_url(self):
+        return reverse_lazy('user_login')
 
 
+class LoginUser(LoginView):
+    form_class = CustomUserLoginForm
+    template_name = "user/user_login.html"
 
-def user_login(request):
-    if request.method == 'POST':
-        form = CustomUserLoginForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('home')
-    else:
-        form = CustomUserLoginForm()
-    return render(request, "user/user_login.html", {'form': form,})
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+
+#def user_login(request):
+#    if request.method == 'POST':
+#        form = CustomUserLoginForm(data=request.POST)
+#        if form.is_valid():
+#            user = form.get_user()
+#            login(request, user)
+#            return redirect('home')
+#    else:
+#        form = CustomUserLoginForm()
+#    return render(request, "user/user_login.html", {'form': form,})
 
 
 def user_logout(request):

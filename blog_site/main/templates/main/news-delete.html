@@ -19,8 +19,18 @@
 
 
 {% block main %}
-<form method="post" enctype="multipart/form-data" id="news_delete_form">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-primary">Удалить</button>
-</form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <form method="post" enctype="multipart/form-data" id="news_delete_form">
+               {% csrf_token %}
+               <h2>Вы уверены, что хотите удалить статью?</h2>
+               <br>
+               <button type="submit" class="btn btn-primary">Удалить</button>
+           </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

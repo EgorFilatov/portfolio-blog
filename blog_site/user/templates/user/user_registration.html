@@ -25,6 +25,15 @@
            </div>
 
            <div class="col-md-4">
+
+               {% if messages %}
+                    {% for message in messages %}
+                       <div class="text-center alert alert-{{ message.tags }}">
+                           {{ message|safe }}
+                       </div>
+                   {% endfor %}
+               {% endif %}
+
                 <form method="post" enctype="multipart/form-data" id="user_registration_form">
                     {% csrf_token %}
                     <label for="{{ form.first_name.id_for_label }}" class="form-label">Ваше имя:</label>
@@ -38,12 +47,15 @@
                     <br>
                     <label for="{{ form.email.id_for_label }}" class="form-label">E-mail:</label>
                     {{ form.email }}
+                    <div class="invalid-feedback" data-sb-feedback="email:required">Необходимо ввести email.</div>
                     <br>
                     <label for="{{ form.password1.id_for_label }}" class="form-label">Пароль:</label>
                     <input type="password" class="form-control" id="id_password1" name="password1">
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Пароль введен неверно.</div>
                     <br>
                     <label for="{{ form.password2.id_for_label }}" class="form-label">Повторите пароль:</label>
                     <input type="password" class="form-control" id="id_password2" name="password2">
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Пароль введен неверно.</div>
                     <br>
 
                     <p><button type="submit" class="btn btn-primary">Зарегистрироваться</button></p>

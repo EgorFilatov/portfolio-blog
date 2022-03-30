@@ -10,8 +10,9 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-                            <span class="subheading">{{ user.profession }} | {{ user.email }}</span>
+                            {% get_user as admin_user %}
+                            <h1>{{ admin_user.first_name }} {{ admin_user.last_name }}</h1>
+                            <span class="subheading">{{ admin_user.profession }} | {{ admin_user.email }}</span>
                         </div>
                     </div>
                 </div>
@@ -24,8 +25,9 @@
 <div class="container px-4 px-lg-5">
     <div class="row gx-2 gx-lg-3 justify-content-center">
         <div class="col-md-12 col-lg-11 col-xl-10 text-center">
-            <p>{{ user.about }}</p>
-            <a href="{{ user.summary.url }}" class="btn btn-primary">Скачать резюме</a>
+            {% get_user as admin_user %}
+            <p>{{ admin_user.about }}</p>
+            <a href="{{ admin_user.summary.url }}" class="btn btn-primary">Скачать резюме</a>
         </div>
     </div>
 </div>

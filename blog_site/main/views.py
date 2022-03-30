@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -19,9 +20,9 @@ class BlogNewsList(ListView):
     extra_context = {}
 
 
-def category(request, cat_id):
-    news = News.objects.filter(category_id=cat_id)
-    category_name = Categories.objects.get(pk=cat_id)
+def category(request, pk):
+    news = News.objects.filter(category_id=pk)
+    category_name = Categories.objects.get(pk=pk)
     paginator = Paginator(news, 5)
     page_num = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_num)
@@ -36,22 +37,25 @@ class BlogNewsDetail(DetailView):
     extra_context = {}
 
 
-class CreateNews(CreateView):
+class CreateNews(LoginRequiredMixin, CreateView):
     form_class = NewsForm
     template_name = 'main/news_add.html'
     success_url = reverse_lazy('blog')
+    login_url = 'user_login'
 
 
-class UpdateNews(UpdateView):
+class UpdateNews(LoginRequiredMixin, UpdateView):
     model = News
     form_class = NewsForm
     template_name = 'main/news_update.html'
+    login_url = 'user_login'
 
 
-class DeleteNews(DeleteView):
+class DeleteNews(LoginRequiredMixin, DeleteView):
     model = News
     template_name = 'main/news-delete.html'
     success_url = reverse_lazy('blog')
+    login_url = 'user_login'
 
 class Search(ListView):
     template_name = 'main/search.html'

@@ -29,7 +29,7 @@ class Categories(models.Model):
     category = models.CharField(verbose_name='Категория', help_text='Категория', max_length=50)
 
     def get_absolute_url(self):
-        return reverse_lazy('categories', kwargs={'cat_id': self.pk})
+        return reverse_lazy('categories', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.category
