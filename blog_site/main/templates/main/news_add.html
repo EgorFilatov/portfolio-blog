@@ -31,40 +31,32 @@
 
                         <label for="header">Заголовок</label>
                         {{ form.header }}
-                        <div class="invalid-feedback" data-sb-feedback="name:required">Необходимо ввести имя.</div>
+                        {{ form.header.errors }}
                         <br/>
 
                         <label for="{{ form.annotation.id_for_label }}">Аннотация</label>
                         {{ form.annotation }}
-                        <div class="invalid-feedback" data-sb-feedback="name:required">Необходимо ввести аннотацию к статье.</div>
+                        {{ form.annotation.errors }}
                         <br/>
 
                         <label for="{{ form.full_text.id_for_label }}">Текст статьи</label>
                         {{ form.full_text }}
+                        {{ form.full_text.errors }}
                         <br/>
                         <br/>
 
                         <label for="{{ form.image.id_for_label }}">Изображение</label>
                         {{ form.image }}
+                        {{ form.image.errors }}
                         <br/>
 
                         <label for="{{ form.category.id_for_label }}">Категория</label>
                         <br/>
                         {{ form.category }}
+                        {{ form.category.errors }}
                         <br/>
                         <br/>
 
-                        <!-- Submit success message-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Статья успешно отредактирована!</div>
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Редактирования!</div></div>
-                        <!-- Submit Button-->
                         <button class="btn btn-primary" id="submitButton" type="submit">Сохранить</button>
                     </form>
                 </div>

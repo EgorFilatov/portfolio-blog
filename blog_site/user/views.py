@@ -29,18 +29,6 @@ class LoginUser(LoginView):
         return reverse_lazy('home')
 
 
-#def user_login(request):
-#    if request.method == 'POST':
-#        form = CustomUserLoginForm(data=request.POST)
-#        if form.is_valid():
-#            user = form.get_user()
-#            login(request, user)
-#            return redirect('home')
-#    else:
-#        form = CustomUserLoginForm()
-#    return render(request, "user/user_login.html", {'form': form,})
-
-
 def user_logout(request):
     logout(request)
     return redirect('home')
@@ -51,6 +39,7 @@ def contacts(request):
         form = CustomUserContactForm(request.POST)
 
         if form.is_valid():
+            messages.success(request, 'Сообщение успешно отправлено!')
             message = 'Email от %s (%s): %s' % (form.cleaned_data['contact_name'], form.cleaned_data['contact_email'], form.cleaned_data['message'])
             send_mail(
                 'Письмо из портфолио сайта',  # subject
@@ -58,7 +47,7 @@ def contacts(request):
                 '23egih23@gmail.com',  # from email
                 ['egor.filatov@live.com'],  # to email
             )
-            return redirect('success_message')
+            #return redirect('success_message')
     else:
         form = CustomUserContactForm()
     return render(request, "user/user_contacts.html", {'form': form,})
