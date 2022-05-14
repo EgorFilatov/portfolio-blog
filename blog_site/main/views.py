@@ -7,27 +7,37 @@ from .forms import NewsForm
 from .models import *
 from .import urls
 from user.models import *
+from .parse import parsing
 
 
 def home_page(request):
     return render(request, "main/home_page.html", {})
 
 
-class BlogNewsList(ListView):
-    paginate_by = 5
-    model = News
-    template_name = 'main/blog.html'
-    extra_context = {}
-
-
 def category(request, pk):
     news = News.objects.filter(category_id=pk)
     category_name = Categories.objects.get(pk=pk)
-    paginator = Paginator(news, 5)
+    paginator = Paginator(news, 20)
     page_num = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_num)
     return render(request, "main/category.html", {'page_obj': page_obj,
                                                   'category_name': category_name,})
+
+def parse(request):
+    news_list = parsing()
+    i = 0
+    while i < len(news_list):
+        news = News(header=news_list[i]['header'], annotation=news_list[i]['annotation'], full_text=news_list[i]['annotation'], category=Categories.objects.get(pk=7), image_url=news_list[i]['image'])
+        news.save()
+        i = i + 1
+    return redirect('blog')
+
+
+class BlogNewsList(ListView):
+    paginate_by = 20
+    model = News
+    template_name = 'main/blog.html'
+    extra_context = {}
 
 
 class BlogNewsDetail(DetailView):

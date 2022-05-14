@@ -12,5 +12,5 @@ urlpatterns = [
     path('update/<int:pk>/', UpdateNews.as_view(), name='news_update'),
     path('delete/<int:pk>/', DeleteNews.as_view(), name='news_delete'),
     path('search/', Search.as_view(), name='search'),
-
+    path('parse/', views.parse, name='parse'),
 ]

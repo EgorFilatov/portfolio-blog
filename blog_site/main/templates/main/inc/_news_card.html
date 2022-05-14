@@ -17,7 +17,12 @@
                             <a class="badge bg-secondary text-decoration-none link-light" href="{{ el.category.get_absolute_url }}">{{ el.category }}</a>
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="{{ el.image.url }}"/></figure>
+                        {% if el.image %}
+                            <figure class="mb-4"><img class="img-fluid rounded" src="{{ el.image.url }}"/></figure>
+                        {% endif %}
+                        {% if el.image_url %}
+                            <figure class="mb-4"><img class="img-fluid rounded" src="{{ el.image_url }}"/></figure>
+                        {% endif %}
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">{{ el.annotation }}</p>
@@ -59,6 +64,7 @@
                                         <li><a href="{% url 'blog' %}">Все</a></li>
                                         {% if request.user.is_authenticated %}
                                             <li><a href="{% url 'news_add' %}">Добавить новость</a></li>
+                                            <li><a href="{% url 'parse' %}">Парсинг новостей с "Хабр"</a></li>
                                         {% endif %}
                                     </ul>
                                 </div>
