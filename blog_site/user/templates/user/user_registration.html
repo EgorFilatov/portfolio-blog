@@ -25,25 +25,46 @@
            </div>
 
            <div class="col-md-4">
+
+               {% if messages %}
+                    {% for message in messages %}
+                       <div class="text-center alert alert-{{ message.tags }}">
+                           {{ message|safe }}
+                       </div>
+                   {% endfor %}
+               {% endif %}
+
                 <form method="post" enctype="multipart/form-data" id="user_registration_form">
                     {% csrf_token %}
+
                     <label for="{{ form.first_name.id_for_label }}" class="form-label">Ваше имя:</label>
                     {{ form.first_name }}
+                    {{ form.first_name.errors }}
                     <br>
+
                     <label for="{{ form.last_name.id_for_label }}" class="form-label">Ваша фамилия:</label>
                     {{ form.last_name }}
+                    {{ form.last_name.errors }}
                     <br>
+
                     <label for="{{ form.username.id_for_label }}" class="form-label">Логин:</label>
                     {{ form.username }}
+                    {{ form.username.errors }}
                     <br>
+
                     <label for="{{ form.email.id_for_label }}" class="form-label">E-mail:</label>
                     {{ form.email }}
+                    {{ form.email.errors }}
                     <br>
+
                     <label for="{{ form.password1.id_for_label }}" class="form-label">Пароль:</label>
                     <input type="password" class="form-control" id="id_password1" name="password1">
+                    {{ form.password1.errors }}
                     <br>
+
                     <label for="{{ form.password2.id_for_label }}" class="form-label">Повторите пароль:</label>
                     <input type="password" class="form-control" id="id_password2" name="password2">
+                    {{ form.password2.errors }}
                     <br>
 
                     <p><button type="submit" class="btn btn-primary">Зарегистрироваться</button></p>

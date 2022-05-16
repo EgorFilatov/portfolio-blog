@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from ckeditor.widgets import CKEditorWidget
+
 
 
 class NewsForm(forms.ModelForm):
@@ -11,10 +13,6 @@ class NewsForm(forms.ModelForm):
         widgets = {
             'header': forms.TextInput(attrs={'class': 'form-control'}),
             'annotation': forms.Textarea(attrs={'class': 'form-control'}),
-            'full_text': forms.Textarea(attrs={'class': 'form-control'}),
+            'full_text': forms.Textarea(),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'},),}
-
-
-
-

@@ -9,6 +9,7 @@ class News(models.Model):
     full_text = RichTextField(blank=True, null=True, verbose_name='Текст статьи')
     #full_text = models.TextField(blank=True, null=True, verbose_name='Текст статьи')
     image = models.ImageField(verbose_name='Изображение', blank=True, upload_to='media/img/news_img/%Y/%m/%d/')
+    image_url = models.CharField(verbose_name='URL изображения', max_length=250, blank=True, null=True)
     created_at = models.DateTimeField(verbose_name='Дата публикации', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата редактирования', auto_now=True)
     category = models.ForeignKey('Categories', on_delete=models.PROTECT, verbose_name='Категория')
@@ -29,7 +30,7 @@ class Categories(models.Model):
     category = models.CharField(verbose_name='Категория', help_text='Категория', max_length=50)
 
     def get_absolute_url(self):
-        return reverse_lazy('categories', kwargs={'cat_id': self.pk})
+        return reverse_lazy('categories', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.category
