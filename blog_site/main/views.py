@@ -27,7 +27,7 @@ def parse(request):
     news_list = parsing()
     i = 0
     while i < len(news_list):
-        news = News(header=news_list[i]['header'], annotation=news_list[i]['annotation'], full_text=news_list[i]['annotation'], category=Categories.objects.get(pk=7), image_url=news_list[i]['image'])
+        news = News(header=news_list[i]['header'], annotation=news_list[i]['annotation'], full_text=news_list[i]['full_text'], category=Categories.objects.get(pk=7), image_url=news_list[i]['image'])
         news.save()
         i = i + 1
     return redirect('blog')
