@@ -7,7 +7,7 @@ from .forms import NewsForm
 from .models import *
 from .import urls
 from user.models import *
-from .parse import parsing
+from .parse import get_content
 
 
 def home_page(request):
@@ -23,13 +23,19 @@ def category(request, pk):
     return render(request, "main/category.html", {'page_obj': page_obj,
                                                   'category_name': category_name,})
 
+
 def parse(request):
-    news_list = parsing()
+    news_list = get_content()
+    news_list.reverse()
+    latest_news = News.objects.filter(category_id=7).first().header
     i = 0
     while i < len(news_list):
+        if news_list[-1 - i]['header'] == latest_news:
+            break
         news = News(header=news_list[i]['header'], annotation=news_list[i]['annotation'], full_text=news_list[i]['full_text'], category=Categories.objects.get(pk=7), image_url=news_list[i]['image'])
         news.save()
         i = i + 1
+    print(latest_news)
     return redirect('blog')
 
 
