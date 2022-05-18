@@ -3,8 +3,15 @@
 
 {% block header %}
 <!-- Page Header-->
+
         {% if news.image %}
             <header class="masthead" style="background-image: url('{{ news.image.url }}')">
+        {% endif %}
+        {% if news.image_url %}
+            <header class="masthead" style="background-image: url('{{ news.image_url }}')">
+        {% endif %}
+        {% if not news.image_url and not news.image %}
+            <header class="masthead" style="background-image: url('https://habr.com/img/habr_ru.png')">
         {% endif %}
 
             <div class="container position-relative px-4 px-lg-5">
